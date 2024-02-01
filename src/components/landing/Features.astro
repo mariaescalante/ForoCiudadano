@@ -1,0 +1,17 @@
+---
+import { supabase } from "../../lib/supabase"
+let { data: usuarios } = await supabase.from('usuarios').select('*')
+---
+
+<h1 class="text-center font-bold text-5xl mt-10">Usuarios</h1>
+
+<div class="grid md:grid-cols-3 gap-4 p-4">
+    {
+      usuarios && usuarios.map((usuario) => (
+        <div class="bg-teal-600 p-10 rounded-xl">
+          <h2 class=" text-center text-2xl font-bold my-4">{usuario.nombre}</h2>
+          <p class="text-center">{usuario.apellido}</p>
+        </div>
+      ))
+    }
+  </div>

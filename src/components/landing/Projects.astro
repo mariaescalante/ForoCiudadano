@@ -1,0 +1,20 @@
+---
+import { supabase } from "../../lib/supabase"
+let { data: usuarios } = await supabase.from('usuarios').select('*')
+---
+
+<h2 class="text-5xl font-bold my-5">Projects</h2>
+{
+  usuarios && usuarios.map((usuario) => (
+    <div class="flex flex-col md:flex-row text-center md:text-left mb-2">
+      <div class="flex-1 p-4">
+        <h2 class="font-bold text-2xl my-4">{usuario.nombre}</h2>
+        <p>{usuario.apellido}, {usuario.email}</p>
+        <button class="bg-teal-600 px-10 py-3 my-5 hover:bg-teal-500">Más información</button>
+      </div>
+      <div class="flex-1">
+        <img src="hero.png" class="w-72 m-auto" />
+      </div>
+    </div>
+  ))
+}
