@@ -1,0 +1,80 @@
+---
+import { supabase } from "../../public/supabase";
+import Base from "../layout/Base.astro";
+const title = "Completa tu perfil";
+
+let { data: user, error } = await supabase.from("Usuario").select("*");
+---
+
+<Base title={title}>
+
+  <section class="bg-zinc-900 p-20 rounded-xl my-4">
+    <h1 class="text-5xl font-bold my-5">¡Bienvenido a la comunidad!</h1>
+    <p>
+      Gracias por registrarte en nuestra comunidad. Estamos muy contentos de
+      tenerte con nosotros.
+    </p>
+  </section>
+
+  <section class="bg-zinc-900 p-20 rounded-xl my-4">
+    <h2 class="text-5xl font-bold my-5">
+      Completa tu registro en dos pasos más
+    </h2>
+    <h3 class="text-2xl font-bold my-5">Paso 1:</h3>
+    <p>
+      Confirma tu email a través del email de verificación que acaba de recibir
+      en su correo electrónico
+    </p>
+
+    <h3 class="text-2xl font-bold my-5">Paso 2:</h3>
+    <p>Completa tu perfil con los siguientes datos</p>
+
+    <div class="container">
+      <div class="row">
+        <form>
+          <div class="grid grid-cols-1 gap-2">
+            <label for="inputNombre" class="font-medium dark:text-zinc-300 text-zinc-900 text-sm py-2">Nombre</label>
+            <input
+              type="text"
+              class="rounded-md py-2 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"  
+              id="inputNombre"
+              placeholder="nombre"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 gap-2">
+            <label for="inputApellidos" class="font-medium dark:text-zinc-300 text-zinc-900 text-sm py-2">Apellidos</label>
+            <input
+              type="text"
+              class="rounded-md py-2 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"              id="inputApellidos"
+              placeholder="apellidos"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 gap-2">
+            <label for="inputEmail" class="font-medium dark:text-zinc-300 text-zinc-900 text-sm py-2">Email</label>
+            <input
+              type="email"
+              class="rounded-md py-2 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"  
+              id="inputEmail"
+              placeholder="nombre@example.com"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 gap-2">
+            <label for="inputTelefono" class="font-medium dark:text-zinc-300 text-zinc-900 text-sm py-2">Teléfono</label>
+            <input
+              type="number"
+              class="rounded-md py-2 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"  
+              id="inputTelefono"
+              placeholder="123456789"
+            />
+          </div>
+          <button class="bg-teal-600 px-3 py-2 hover:bg-teal-500 rounded-md mt-4 text-zinc-100 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed" id="sendUserData">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../public/userData.js"></script>
+  </section>
+</Base>
