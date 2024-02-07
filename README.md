@@ -1,5 +1,8 @@
-# Astro and Supabase demo
+# TRABAJO FIN DE GRADO - UNIVERSIDAD DE SEVILLA
 
-This demo uses [Astro](https://astro.build) and [Supabase](https://supabase.com) to create a simple app showcasing the use of Supabase's auth and database features.
+Este proyecto trata de realizar una plataforma web en la que los ciudadanos de Sevilla realicen quejas a sus ediles con el objetivo de mejorar el bienestar y crecer como ciudad.
 
-Try a [live demo](https://astro-supabase-auth.vercel.app/).
+### Tecnologías usadas:
+
+- Framework Astro
+- Base de datos: Supabase
