@@ -1,6 +1,6 @@
 ---
 import Base from "../layout/Base.astro";
-const title = "Register";
+const title = "Registrarse  ";
 ---
 
 <Base title={title}>
@@ -12,10 +12,10 @@ const title = "Register";
         {title}
       </h1>
       <p class="text-zinc-500 dark:text-zinc-400 text-sm mb-8 w-full">
-        Already have an account? <a
+        ¿Ya tienes cuenta? <a
           href="/signin"
           class="dark:text-blue-400 text-blue-600 underline underline-offset-2 font-medium"
-          >Sign in</a
+          >Iniciar Sesión</a
         >
       </p>
       <form
@@ -36,11 +36,12 @@ const title = "Register";
             class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"
           />
         </div>
+
         <div class="grid grid-cols-1 gap-2">
           <label
             for="password"
             class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
-            >Password</label
+            >Contraseña</label
           >
           <input
             id="password"
@@ -49,10 +50,53 @@ const title = "Register";
             class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"
           />
         </div>
+
+        <div class="grid grid-cols-1 gap-2">
+          <label
+            for="nombre"
+            class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
+            >Nombre</label
+          >
+          <input
+            id="nombre"
+            type="text"
+            name="nombre"
+            class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 gap-2">
+          <label
+            for="apellidos"
+            class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
+            >Apellidos</label
+          >
+          <input
+            id="apellidos"
+            type="text"
+            name="apellidos"
+            class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 gap-2">
+          <label
+            for="telefono"
+            class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
+            >Telefono</label
+          >
+          <input
+            id="telefono"
+            type="text"
+            name="telefono"
+            class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"
+          />
+        </div>
+
         <button
           type="submit"
-          class="dark:bg-zinc-100 bg-zinc-900 border-zinc-900 py-1.5 border dark:border-zinc-100 rounded-md mt-4 dark:text-zinc-900 text-zinc-100 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed"
-          >Register</button
+          class="bg-teal-600 font-bold px-3 py-2 hover:bg-teal-500 mt-3"
+          >Registrarse</button
         >
       </form>
     </section>
