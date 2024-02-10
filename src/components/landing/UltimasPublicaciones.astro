@@ -1,0 +1,36 @@
+---
+import { supabase } from "../../lib/supabase";
+let { data: quejas } = await supabase.from("Queja").select("*").order("fecha", { ascending: false }).range(0, 4);
+---
+
+<h2 class="text-zinc-300 text-5xl font-bold my-5 mt-20">Últimas publicaciones</h2>
+{
+  quejas &&
+    quejas.map((queja) => (
+      <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-zinc-800 rounded-xl my-10">
+        <div class="flex items-center p-3">
+          <img src={queja.imagen} class="w-72 m-auto" />
+        </div>
+        <div class="bg-zinc-900 rounded-xl flex-1 pb-10">
+          <div class="flex justify-between">
+            
+              <h2 class="text-teal-500 font-bold text-2xl my-4 mx-8">
+                {queja.titulo}
+              </h2>
+              <h2 class="text-zinc-400 font-bold text-l my-4 mx-8">
+                {queja.fecha.substring(0,10)}
+              </h2>
+            
+          </div>
+
+          <p class="text-xl mx-10">{queja.descripcion}</p>
+          <div class="bg-teal-950 text-teal-600 px-10 py-3 my-5 mx-5 inline-block">
+            {queja.categoria}
+          </div>
+          <button class="bg-teal-700 px-10 py-3 my-5 mx-5 hover:bg-teal-600">
+            <a href={`/queja/${queja.id}`}>Más información</a>
+          </button>
+        </div>
+      </div>
+    ))
+}
