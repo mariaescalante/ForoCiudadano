@@ -28,7 +28,7 @@ let { data: quejas } = await supabase.from("Queja").select("*").order("fecha", {
             {queja.categoria}
           </div>
           <button class="bg-teal-700 px-10 py-3 my-5 mx-5 hover:bg-teal-600">
-            Más información
+            <a href={`/queja/${queja.id}`}>Más información</a>
           </button>
         </div>
       </div>

@@ -1,0 +1,57 @@
+---
+import Base from "../../layout/Base.astro";
+import { supabase } from "../../../public/supabase.js";
+
+const { id } = Astro.params;
+let { data: queja, error } = await supabase
+  .from("Queja")
+  .select("*")
+  .eq("id", id);
+
+let { data: usuario } = await supabase
+  .from("Usuario")
+  .select("*").eq("id", queja[0].usuario);
+---
+
+<Base title="Detalles">
+  <h2 class="text-zinc-300 text-5xl font-bold mb-10 text-center">
+    Detalles de la publicación
+  </h2>
+  {
+    queja &&
+      queja.map((queja) => (
+        <>
+        <div class="flex justify-center">
+            <img
+              src={`/${queja.imagen}`}
+              class="w-4/5 object-cover border-4 border-teal-700"
+            />
+          </div>
+
+          <div class="bg-zinc-900 rounded-xl mx-4 my-4 sm:mx-20 sm:my-10 lg:mx-32 lg:my-16 py-10 text-center">
+            <h2 class="text-teal-500 font-bold text-3xl sm:text-5xl my-4 mx-4 sm:mx-8">
+              {queja.titulo}
+            </h2>
+            <h2 class="text-zinc-600 font-bold text-2xl my-4 mx-4 sm:mx-8">
+              Fecha de publicación: {queja.fecha.substring(0, 10)}
+            </h2>
+            <h2 class="text-zinc-600 font-bold text-2xl my-4 mx-4 sm:mx-8">
+              Publicado por: {usuario[0].nombre} {usuario[0].apellidos}
+            </h2>
+
+            <p class="text-2xl sm:text-3xl mx-4 sm:mx-20 my-6">
+              {queja.descripcion}
+            </p>
+
+            <div class="bg-teal-950 text-teal-600 px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-xl">
+              Categoría - {queja.categoria}
+            </div>
+
+            <div class="bg-teal-950 text-teal-600 px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-xl">
+              Distrito - {queja.distrito}
+            </div>
+          </div>
+        </>
+      ))
+  }
+</Base>
