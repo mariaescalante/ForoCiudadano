@@ -1,22 +1,27 @@
 ---
-import servicios from './servicios.json';
+import servicios from "./servicios.json";
 ---
 
-<div class="bg-zinc-900 rounded-xl my-10 flex flex-col md:flex-row md:p-20">
-    <div class="flex-1 grid grid-cols-2 gap-4 pb-20 md:pb-0">
-      {
-      servicios.map((servicio) => 
-      <div class="text-center mx-10 my-10">
-        <img src={servicio.imagen} class="w-40 m-auto" />
-        <p class="text-zinc-300 text-xl mt-4">{servicio.titulo}</p>
-      </div>)
-      }
-
-    </div>
-    <div class="justify-center flex-1 flex flex-col gap-y-10 text-center mx-8">
-      <h2 class="text-zinc-300 font-bold text-5xl">¿Qué servicios ofrece Queja Ciudadana?</h2>
-      <p class="text-3xl text-zinc-300">
-        Con Queja Ciudadana coloca el poder de la voz ciudadana directamente en tus manos. Nuestra misión es fortalecer la conexión entre los ciudadanos
-      </p>
-    </div>
+<div
+  class="bg-zinc-800 rounded-xl my-10 flex flex-col md:flex-row md:p-20 lg:mx-20 mx-5 py-5"
+>
+  <div class="flex-1 grid grid-cols-2 gap-4 pb-20 md:pb-0">
+    {
+      servicios.map((servicio) => (
+        <div class="text-center mx-5 lg:mx-1 my-5 lg:my-1">
+          <img src={servicio.imagen} class="w-40 m-auto" />
+          <p class="text-zinc-300 text-xl mt-4">{servicio.titulo}</p>
+        </div>
+      ))
+    }
+  </div>
+  <div class="justify-center flex-1 flex flex-col gap-y-5 text-center mx-5 mb-10">
+    <h2 class="text-zinc-300 font-bold text-2xl lg:text-4xl">
+      ¿Qué servicios ofrece Queja Ciudadana?
+    </h2>
+    <p class="text-xl lg:text-2xl text-zinc-300">
+      Con Queja Ciudadana coloca el poder de la voz ciudadana directamente en
+      tus manos. Nuestra misión es fortalecer la conexión entre los ciudadanos
+    </p>
+  </div>
 </div>

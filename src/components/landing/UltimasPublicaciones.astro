@@ -3,11 +3,11 @@ import { supabase } from "../../lib/supabase";
 let { data: quejas } = await supabase.from("Queja").select("*").order("fecha", { ascending: false }).range(0, 4);
 ---
 
-<h2 class="text-zinc-300 text-5xl font-bold my-5 mt-20">Últimas publicaciones</h2>
+<h2 class="text-zinc-300 font-bold mt-20 text-center lg:text-5xl text-2xl">Últimas publicaciones</h2>
 {
   quejas &&
     quejas.map((queja) => (
-      <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-zinc-800 rounded-xl my-10">
+      <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-zinc-800 rounded-xl my-5 lg:my-10 lg:mx-20 mx-5">
         <div class="flex items-center p-3">
           <img src={queja.imagen} class="w-72 m-auto" />
         </div>
