@@ -14,7 +14,7 @@
     "@astrojs/solid-js": "^3.0.2",
     "@astrojs/tailwind": "^5.0.4",
     "@astrojs/vercel": "^6.1.0",
-    "@supabase/supabase-js": "^2.39.1",
+    "@supabase/supabase-js": "^2.39.6",
     "astro": "^4.2.8",
     "micromatch": "^4.0.5",
     "solid-js": "^1.8.7",
