@@ -50,5 +50,5 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     secure: true,
   });
 
-  return redirect("/misQuejas");
+  return redirect("/miPerfil");
 };
