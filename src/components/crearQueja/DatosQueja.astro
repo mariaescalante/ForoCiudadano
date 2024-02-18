@@ -1,0 +1,128 @@
+---
+const { email } = Astro.locals;
+---
+
+
+<form>
+  <div class="bg-zinc-900 rounded-xl my-5 lg:my-10 lg:mx-20 mx-5 text-center pb-10">
+    <h2 class="font-bold mt-10 text-center lg:text-3xl text-xl text-teal-400 my-10 pt-10">
+      Introduzca los datos de su queja
+    </h2>
+    <div class="inline-block">
+      <div class="grid grid-cols-1 gap-2">
+        <label
+          for="email"
+          class="font-medium dark:text-zinc-300 text-zinc-900 text-xl mb-3"
+          >Usuario</label
+        >
+        <input
+          id="email"
+          type="text"
+          name="email"
+          class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60 mb-8"
+          value={email}
+          disabled
+        />
+      </div>
+
+      <div class="grid grid-cols-1 gap-2">
+        <label
+          for="imagen"
+          class="font-medium dark:text-zinc-300 text-zinc-900 text-xl mb-3"
+          >Imagen</label
+        >
+        <input
+          id="imagen"
+          type="file"
+          name="imagen"
+          accept="image/*"
+          class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60 mb-8"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 gap-2">
+        <label
+          for="titulo"
+          class="font-medium dark:text-zinc-300 text-zinc-900 text-xl mb-3"
+          >Título</label
+        >
+        <input
+          id="titulo"
+          type="text"
+          name="titulo"
+          class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60 mb-8"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 gap-2">
+        <label
+          for="descripcion"
+          class="font-medium dark:text-zinc-300 text-zinc-900 text-xl mb-3"
+          >Descripción</label
+        >
+        <textarea
+          id="descripcion"
+          name="descripcion"
+          rows="6"
+          class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60 mb-8"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 gap-2">
+        <label
+          for="categoria"
+          class="font-medium dark:text-zinc-300 text-zinc-900 text-xl mb-3"
+          >Categoría</label
+        >
+        <select
+          id="categoria"
+          name="categoria"
+          class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60 mb-8"
+        >
+          <option value="Infraestructura / Urbanismo"
+            >Infraestructura / Urbanismo</option
+          >
+          <option value="Servicios Públicos">Servicios Públicos</option>
+          <option value="Transporte / Movilidad">Transporte / Movilidad</option>
+          <option value="Medio Ambiente">Medio Ambiente</option>
+          <option value="Seguridad">Seguridad</option>
+          <option value="Educación / Salud">Educación / Salud</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-1 gap-2">
+        <label
+          for="distrito"
+          class="font-medium dark:text-zinc-300 text-zinc-900 text-xl mb-3"
+          >Distrito</label
+        >
+        <select
+          id="distrito"
+          name="distrito"
+          class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60 mb-8"
+        >
+          <option value="Bellavista - La Palmera">Bellavista - La Palmera</option>
+          <option value="Casco Antiguo">Casco Antiguo</option>
+          <option value="Cerro - Amate">Cerro - Amate</option>
+          <option value="Este - Alcosa - Torreblanca">Este - Alcosa - Torreblanca</option>
+          <option value="Los Remedios">Los Remedios</option>
+          <option value="Macarena">Macarena</option>
+          <option value="Nervión">Nervión</option>
+          <option value="San Pablo - Santa Justa">San Pablo - Santa Justa</option>
+          <option value="Norte">Norte</option>
+          <option value="Sur">Sur</option>
+          <option value="Triana">Triana</option>
+        </select>
+      </div>
+
+      <button
+        id="publicarQueja"
+        class="bg-teal-600 font-bold px-3 py-2 hover:bg-teal-500 mt-3 text-teal-950"
+        >Publicar queja</button
+      >
+
+      <script src="./insertQueja.js"></script>
+    </div>
+  </div>
+</form>
