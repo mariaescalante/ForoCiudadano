@@ -1,5 +1,6 @@
 ---
 import { supabase } from "../../../public/supabase.js";
+import Pagination from "./Pagination.astro";
 
 const { email } = Astro.locals;
 
@@ -11,12 +12,24 @@ let { data: usuario, error } = await supabase
 let { data: quejas } = await supabase
   .from("Queja")
   .select("*")
-  .eq("usuario", usuario && usuario[0]?.id);
+  .eq("usuario", usuario && usuario[0]?.id)
+  .order("fecha", { ascending: false });
+
+const quejasPorPagina = 8;
+
+const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
+
+const totalPaginas: number = Math.ceil(quejas.length / quejasPorPagina);
+
+const quejasPaginadas = quejas?.slice(
+  (currentPage - 1) * quejasPorPagina,
+  currentPage * quejasPorPagina,
+);
 ---
 
 {
-  quejas &&
-    quejas.map((queja) => (
+  quejasPaginadas &&
+    quejasPaginadas.map((queja) => (
       <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-zinc-800 rounded-xl my-5 lg:my-10 lg:mx-20 mx-5">
         <div class="flex items-center p-3">
           <img src={queja.imagen} class="w-auto lg:w-96 m-auto" />
@@ -42,3 +55,9 @@ let { data: quejas } = await supabase
       </div>
     ))
 }
+<Pagination
+  currentPage={currentPage}
+  totalPages={totalPaginas}
+  disablePrevious={currentPage === 1}
+  disableNext={currentPage === totalPaginas}
+/>
