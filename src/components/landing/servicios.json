@@ -1,19 +1,16 @@
 [
     {
-        "imagen": "consultar.svg",
-        "titulo": "Consulta las quejas de los ciudadanos"
+        "imagen": "publicar.svg",
+        "titulo": "Publica tus propias quejas"
     },
-
     {
         "imagen": "comentar.svg",
         "titulo": "Califica y comenta las quejas"
     },
-
     {
-        "imagen": "publicar.svg",
-        "titulo": "Publica tus propias quejas"
+        "imagen": "consultar.svg",
+        "titulo": "Consulta las quejas de los ciudadanos"
     },
-
     {
         "imagen": "localizar.svg",
         "titulo": "Localiza y filtra las quejas por categoría"

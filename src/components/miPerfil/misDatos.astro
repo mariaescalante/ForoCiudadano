@@ -12,39 +12,41 @@ let { data: usuario, error } = await supabase
 {
   usuario &&
     usuario.map((usuario) => (
-      <div class="bg-zinc-900 rounded-xl my-5 lg:my-10 lg:mx-20 mx-5 text-center pb-10">
+      <div class="bg-zinc-900 rounded-xl my-5 lg:my-6 lg:mx-56 mx-5 text-center pb-10">
+        <h1 class="text-teal-400 font-bold mt-5 pt-5 lg:text-xl">
+          Estos son tus datos como ciudadano:
+        </h1>
         <div class="inline-block">
-          <h2 class="text-zinc-300 font-bold mt-10 text-center lg:text-2xl text-xl">
+          <h2 class="text-zinc-300 font-bold mt-5 text-center lg:text-xl text-l">
             Nombre
           </h2>
           <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2">
             {usuario.nombre}
           </div>
 
-          <h2 class="text-zinc-300 font-bold mt-10 text-center lg:text-2xl text-xl">
+          <h2 class="text-zinc-300 font-bold mt-6 text-center lg:text-xl text-l">
             Apellidos
           </h2>
           <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2">
             {usuario.apellidos}
           </div>
 
-          <h2 class="text-zinc-300 font-bold mt-10 text-center lg:text-2xl text-xl">
+          <h2 class="text-zinc-300 font-bold mt-6 text-center lg:text-xl text-l">
             Email
           </h2>
           <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2">
             {usuario.email}
           </div>
 
-          <h2 class="text-zinc-300 font-bold mt-10 text-center lg:text-2xl text-xl">
+          <h2 class="text-zinc-300 font-bold mt-6  text-center lg:text-xl text-l">
             Teléfono
           </h2>
-          <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2 mb-14">
+          <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2 mb-7 ">
             {usuario.telefono}
           </div>
           <a
             href="/api/auth/signout"
-            class="bg-teal-600 font-bold px-5 py-2 hover:bg-teal-500 mt-3 text-teal-950"
-
+            class="bg-teal-600 font-bold px-5 py-2 hover:bg-teal-500 text-teal-950"
           >
             Cerrar sesión
           </a>
