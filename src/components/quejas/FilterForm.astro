@@ -1,0 +1,44 @@
+<div class="mt-10 lg:mx-56 mx-5">
+    <form id="filter-form" class="flex items-center" action="/filter">
+      <label for="categoria-select" class="sr-only">Selecciona la categoría</label>
+      <div class="relative w-full">
+        <select
+          id="categoria"
+          name="categoria"
+          class="bg-zinc-900 border border-teal-600 text-zinc-50 text-sm rounded-lg focus:ring-teal-500 focus:border-tela-500 block w-full p-2.5"
+          required
+        >
+          <option value="" disabled selected>Select Category</option>
+          <option value="Infraestructura / Urbanismo">Infraestructura / Urbanismo</option>
+          <option value="Servicios Públicos">Servicios Públicos</option>
+          <option value="Transporte / Movilidad">Transporte / Movilidad</option>
+          <option value="Medio Ambiente">Medio Ambiente</option>
+          <option value="Seguridad">Seguridad</option>
+          <option value="Educación / Salud">Educación / Salud</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="p-2.5 ms-2 text-sm font-medium text-white bg-teal-700 rounded-lg border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300"
+      >
+        <svg
+          class="w-4 h-4"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 20 20"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+          ></path>
+        </svg>
+        <span class="sr-only">Search</span>
+      </button>
+    </form>
+  </div>
+  

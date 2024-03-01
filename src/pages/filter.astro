@@ -1,28 +1,24 @@
 ---
 import Base from "../layout/Base.astro";
+import FilterForm from "../components/quejas/FilterForm.astro";
 import { supabase } from "../../public/supabase.js";
 
-const query: string | null = Astro.url.searchParams.get("query");
+const query: string | null = Astro.url.searchParams.get("categoria");
 
 let { data: quejas } = await supabase.from("Queja").select("*");
 
 const resultadosBusqueda = quejas?.filter((queja) => {
-  const tituloMatch: boolean = queja.titulo
-    .toLowerCase()
-    .includes(query!.toLowerCase());
-  const descripcionMatch: boolean = queja.descripcion
-    .toLowerCase()
-    .includes(query!.toLowerCase());
+  const categoriaMatch: boolean = queja.categoria.includes(query);
 
-  return tituloMatch || descripcionMatch;
+
+  return categoriaMatch;
 });
-
 ---
 
 <Base title="Resultados de la búsqueda">
   {
     resultadosBusqueda &&
-    resultadosBusqueda.map((queja) => (
+      resultadosBusqueda.map((queja) => (
         <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-zinc-800 rounded-xl my-5 lg:my-10 lg:mx-20 mx-5">
           <div class="flex items-center p-3">
             <img src={queja.imagen} class="w-auto lg:w-96 m-auto" />
