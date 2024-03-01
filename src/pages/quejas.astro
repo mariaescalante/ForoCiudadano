@@ -1,12 +1,20 @@
 ---
-import Slogan from '../components/quejas/Slogan.astro'
-import Quejas from '../components/quejas/Quejas.astro'
-import SearchForm from '../components/quejas/SearchForm.astro'
-import Base from '../layout/Base.astro'
+import Slogan from "../components/quejas/Slogan.astro";
+import Quejas from "../components/quejas/Quejas.astro";
+import SearchForm from "../components/quejas/SearchForm.astro";
+import FilterForm from "../components/quejas/FilterForm.astro";
+import Base from "../layout/Base.astro";
 ---
 
-<Base title="Quejas">	
-	<Slogan />
-	<SearchForm />
-	<Quejas />
+<Base title="Quejas">
+  <Slogan />
+  <div class="flex">
+    <div class="flex-1">
+      <SearchForm />
+    </div>
+    <div class="flex-1">
+      <FilterForm />
+    </div>
+  </div>
+  <Quejas />
 </Base>
