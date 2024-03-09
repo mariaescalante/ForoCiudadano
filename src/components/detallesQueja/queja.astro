@@ -3,58 +3,57 @@ import Base from "../../layout/Base.astro";
 import { supabase } from "../../../public/supabase.js";
 
 const { id } = Astro.params;
-let { data: queja } = await supabase
-  .from("Queja")
-  .select("*")
-  .eq("id", id);
+let { data: queja } = await supabase.from("Queja").select("*").eq("id", id);
 
 let { data: usuario } = await supabase
   .from("Usuario")
   .select("*")
   .eq("id", queja[0].usuario);
+
+  const { data } = supabase.storage
+    .from("imagenes")
+    .getPublicUrl(queja[0].imagen);
+
 ---
 
-  <h2 class="text-zinc-300 text-4xl font-bold mb-10 text-center">
-    Detalles de la publicación
-  </h2>
-  {
-    queja &&
-      queja.map((queja) => (
-        <>
-          <div class="flex justify-center">
-            <img
-              src={`/${queja.imagen}`}
-              class="w-2/5 object-cover border-4 border-teal-700"
-            />
+<h2 class="text-zinc-300 text-4xl font-bold mb-10 text-center">
+  Detalles de la publicación
+</h2>
+{
+  queja &&
+    queja.map((queja) => (
+      <>
+        <div class="flex justify-center">
+          <img
+            src={data.publicUrl}
+            class="w-2/5 object-cover border-4 border-teal-700"
+          />
+        </div>
+
+        <div class="bg-zinc-900 rounded-xl my-4 sm:mx-20 sm:my-10 lg:my-16 py-10 text-center lg:mx-56 mx-5">
+          <h2 class="text-teal-500 font-bold text-2xl sm:text-4xl my-4 mx-4 sm:mx-8">
+            {queja.titulo}
+          </h2>
+          <h2 class="text-zinc-600 font-bold text-xl my-4 mx-4 sm:mx-8">
+            Fecha de publicación: {queja.fecha.substring(0, 10)}
+          </h2>
+
+          <p class="text-l sm:text-xl mx-4 sm:mx-20 my-6">
+            {queja.descripcion}
+          </p>
+
+          <div class="bg-teal-950 text-teal-600 px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-xl">
+            Categoría - {queja.categoria}
           </div>
 
-          <div class="bg-zinc-900 rounded-xl my-4 sm:mx-20 sm:my-10 lg:my-16 py-10 text-center lg:mx-56 mx-5">
-            <h2 class="text-teal-500 font-bold text-2xl sm:text-4xl my-4 mx-4 sm:mx-8">
-              {queja.titulo}
-            </h2>
-            <h2 class="text-zinc-600 font-bold text-xl my-4 mx-4 sm:mx-8">
-              Fecha de publicación: {queja.fecha.substring(0, 10)}
-            </h2>
-         
-
-            <p class="text-l sm:text-xl mx-4 sm:mx-20 my-6">
-              {queja.descripcion}
-            </p>
-
-            <div class="bg-teal-950 text-teal-600 px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-xl">
-              Categoría - {queja.categoria}
-            </div>
-
-            <div class="bg-teal-950 text-teal-600 px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-xl">
-              Distrito - {queja.distrito}
-            </div>
-
-            <h2 class="text-zinc-600 font-bold text-xl my-4 mx-4 sm:mx-8">
-              Publicado por: {usuario[0].nombre} {usuario[0].apellidos}
-            </h2>
-
+          <div class="bg-teal-950 text-teal-600 px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-xl">
+            Distrito - {queja.distrito}
           </div>
-        </>
-      ))
-  }
 
+          <h2 class="text-zinc-600 font-bold text-xl my-4 mx-4 sm:mx-8">
+            Publicado por: {usuario[0].nombre} {usuario[0].apellidos}
+          </h2>
+        </div>
+      </>
+    ))
+}
