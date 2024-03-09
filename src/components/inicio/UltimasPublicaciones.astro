@@ -5,6 +5,13 @@ let { data: quejas } = await supabase
   .select("*")
   .order("fecha", { ascending: false })
   .range(0, 4);
+
+for (let i = 0; i < quejas.length; i++) {
+  const { data } = supabase.storage
+    .from("imagenes")
+    .getPublicUrl(quejas[i].imagen);
+  quejas[i].imagen = data.publicUrl;
+}
 ---
 
 <h2 class="text-zinc-300 font-bold my-5 text-center lg:text-3xl text-xl">
