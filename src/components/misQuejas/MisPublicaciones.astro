@@ -15,6 +15,13 @@ let { data: quejas } = await supabase
   .eq("usuario", usuario && usuario[0]?.id)
   .order("fecha", { ascending: false });
 
+for (let i = 0; i < quejas.length; i++) {
+  const { data } = supabase.storage
+    .from("imagenes")
+    .getPublicUrl(quejas[i].imagen);
+  quejas[i].imagen = data.publicUrl;
+}
+
 const quejasPorPagina = 8;
 
 const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
