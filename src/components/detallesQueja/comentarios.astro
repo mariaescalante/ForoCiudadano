@@ -1,0 +1,50 @@
+---
+import { supabase } from "../../../public/supabase.js";
+
+const { id } = Astro.params;
+let { data: comentario, error } = await supabase
+  .from("Comentario")
+  .select("*")
+  .eq("queja", id);
+
+for (let i = 0; i < comentario.length; i++) {
+  let { data: usuario, error } = await supabase
+    .from("Usuario")
+    .select("*")
+    .eq("id", comentario[i].usuario);
+  comentario[i].nombreUsuario = usuario[0].nombre + " " + usuario[0].apellidos;
+}
+---
+
+<h2 class="text-zinc-300 text-4xl font-bold mb-10 text-center">
+  Comentarios de la publicación
+</h2>
+{
+  comentario &&
+    comentario.map((comentario) => (
+      <div class="bg-zinc-900 rounded-xl my-4 sm:mx-20 sm:my-10 lg:my-16 py-3 lg:mx-56 mx-5 p-10">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <h2 class="text-teal-500 font-bold text-l sm:text-2xl mr-4">
+              {comentario.nombreUsuario}
+            </h2>
+            <div class="text-teal-500 font-bold text-2xl sm:text-4xl flex">
+              {[...Array(comentario.estrellas)].map(() => (
+                <img src="/star_yellow.svg" />
+              ))}
+              {[...Array(5 - comentario.estrellas)].map(() => (
+                <img src="/star_grey.svg" />
+              ))}
+            </div>
+          </div>
+          <h2 class="text-zinc-600 font-bold text-xl my-4">
+            {comentario.fecha.substring(0, 10)}{" "}
+            {comentario.fecha.substring(11, 16)}
+          </h2>
+        </div>
+        <p class="text-l sm:text-xl my-5">
+          {comentario.descripcion}
+        </p>
+      </div>
+    ))
+}
