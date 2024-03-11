@@ -1,5 +1,4 @@
 ---
-import "../layout/layout.css";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import { ViewTransitions } from "astro:transitions";
@@ -24,7 +23,7 @@ const { title } = Astro.props;
     />
     <ViewTransitions/>
   </head>
-  <body>
+  <body class="bg-teal-50 dark:bg-zinc-800">
     <Nav />
     <main class="mx-auto container pt-10">
       <slot />
