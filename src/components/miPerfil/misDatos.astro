@@ -12,41 +12,41 @@ let { data: usuario, error } = await supabase
 {
   usuario &&
     usuario.map((usuario) => (
-      <div class="bg-zinc-900 rounded-xl my-5 lg:my-6 lg:mx-56 mx-5 text-center pb-10">
-        <h1 class="text-teal-400 font-bold mt-5 pt-5 lg:text-xl">
+      <div class="bg-teal-600 dark:bg-zinc-900 rounded my-5 lg:my-6 lg:mx-56 mx-5 text-center pb-10">
+        <h1 class="text-teal-950 dark:text-teal-500 font-bold mt-5 pt-5 lg:text-xl">
           Estos son tus datos como ciudadano:
         </h1>
         <div class="inline-block">
-          <h2 class="text-zinc-300 font-bold mt-5 text-center lg:text-xl text-l">
+          <h2 class="text-neutral-100 font-bold mt-5 text-center lg:text-xl text-l">
             Nombre
           </h2>
-          <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2">
+          <div class="text-center bg-teal-100 dark:bg-teal-200 border-teal-600 rounded py-2 px-10 my-2">
             {usuario.nombre}
           </div>
 
-          <h2 class="text-zinc-300 font-bold mt-6 text-center lg:text-xl text-l">
+          <h2 class="text-neutral-100 font-bold mt-6 text-center lg:text-xl text-l">
             Apellidos
           </h2>
-          <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2">
+          <div class="text-center bg-teal-100 dark:bg-teal-200 border-teal-600 rounded py-2 px-10 my-2">
             {usuario.apellidos}
           </div>
 
-          <h2 class="text-zinc-300 font-bold mt-6 text-center lg:text-xl text-l">
+          <h2 class="text-neutral-100 font-bold mt-6 text-center lg:text-xl text-l">
             Email
           </h2>
-          <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2">
+          <div class="text-center bg-teal-100 dark:bg-teal-200 border-teal-600 rounded py-2 px-10 my-2">
             {usuario.email}
           </div>
 
-          <h2 class="text-zinc-300 font-bold mt-6  text-center lg:text-xl text-l">
+          <h2 class="text-neutral-100 font-bold mt-6  text-center lg:text-xl text-l">
             Teléfono
           </h2>
-          <div class="text-center bg-zinc-800 rounded py-2 px-10 my-2 mb-7 ">
+          <div class="text-center bg-teal-100 dark:bg-teal-200 border-teal-600 rounded py-2 px-10 my-2 mb-7 ">
             {usuario.telefono}
           </div>
           <a
             href="/api/auth/signout"
-            class="bg-teal-600 font-bold px-5 py-2 hover:bg-teal-500 text-teal-950"
+            class="bg-teal-300 dark:bg-teal-500 rounded font-semibold hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950 px-4 py-2 "
           >
             Cerrar sesión
           </a>

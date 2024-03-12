@@ -3,23 +3,23 @@ import servicios from "./servicios.json";
 ---
 
 <div
-  class="bg-zinc-900 rounded-xl flex flex-col md:flex-row lg:mx-56 mx-5 p-10"
+  class="bg-teal-500 dark:bg-teal-600 rounded flex flex-col md:flex-row lg:mx-56 mx-5 p-10"
 >
   <div class="flex-1 grid grid-cols-2 gap-4">
     {
       servicios.map((servicio) => (
         <div class="text-center mx-5 lg:mx-1 my-5 lg:my-1">
           <img src={servicio.imagen} class="h-20 lg:h-28 m-auto" />
-          <p class="text-zinc-300 text-sm font-bold">{servicio.titulo}</p>
+          <p class="text-neutral-100 dark:text-neutral-800 text-sm font-semibold">{servicio.titulo}</p>
         </div>
       ))
     }
   </div>
   <div class="justify-center flex-1 flex flex-col gap-y-5 text-center mx-10 mb-10">
-    <h2 class="text-zinc-300 font-bold text-xl lg:text-3xl">
+    <h2 class="text-teal-950 font-bold text-xl lg:text-3xl">
       ¿Qué servicios ofrece Queja Ciudadana?
     </h2>
-    <p class="text-sm lg:text-l text-zinc-300">
+    <p class="text-sm lg:text-l text-neutral-100 dark:text-neutral-800 font-bold">
       Con Queja Ciudadana coloca el poder de la voz ciudadana directamente en
       tus manos. Nuestra misión es fortalecer la conexión entre los ciudadanos
     </p>
