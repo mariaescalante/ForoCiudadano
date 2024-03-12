@@ -11,19 +11,20 @@ interface Props {
 
 <div class="flex justify-between mt-10 lg:mx-20 mx-5">
   <a
-    href={"/misQuejas?page=" + (currentPage - 1)}
+    href={"/quejas?page=" + (currentPage - 1)}
     class={disablePrevious
       ? "inline-block bg-gray-400 px-3 py-2 text-gray-500 rounded-lg pointer-events-none"
-      : "inline-block bg-teal-400 px-3 py-2 hover:bg-teal-700 hover:text-white rounded"}
+      : "inline-block bg-teal-400 px-3 py-2 dark:hover:bg-teal-700 hover:bg-teal-200 hover:text-white rounded"}
   >
     Anterior
   </a>
   <a
-    href={"/misQuejas?page=" + (currentPage + 1)}
+    href={"/quejas?page=" + (currentPage + 1)}
     class={disableNext
       ? "inline-block bg-gray-400 px-3 py-2 text-gray-500 rounded-lg pointer-events-none"
-      : "inline-block bg-teal-400 px-3 py-2 hover:bg-teal-700 hover:text-white rounded"}
+      : "inline-block bg-teal-400 px-3 py-2 dark:hover:bg-teal-700 hover:bg-teal-300 hover:text-white rounded"}
   >
     Siguiente
   </a>
 </div>
+
