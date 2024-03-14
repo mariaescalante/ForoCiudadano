@@ -1,5 +1,6 @@
 ---
-import { supabase } from "../../lib/supabase";
+import { supabase } from "../../../public/supabase";
+
 let { data: quejas } = await supabase
   .from("Queja")
   .select("*")
