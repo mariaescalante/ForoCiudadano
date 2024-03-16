@@ -1,5 +1,6 @@
 ---
-import { supabase } from "../../lib/supabase";
+import { supabase } from "../../../public/supabase";
+
 let { data: quejas } = await supabase
   .from("Queja")
   .select("*")
@@ -38,10 +39,10 @@ for (let i = 0; i < quejas.length; i++) {
           <p class="text-am lg:text-l mx-10 text-neutral-100 dark:text-neutral-100">
             {queja.descripcion}
           </p>
-          <div class="bg-teal-300 dark:bg-teal-500 text-teal-900 px-5 py-2 my-5 mx-5 inline-block font-semibold">
+          <div class="bg-teal-300 dark:bg-teal-500 text-teal-900 dark:text-teal-950 px-5 py-2 my-5 mx-5 inline-block font-semibold">
             {queja.categoria}
           </div>
-          <button class="bg-teal-300 dark:bg-teal-500 px-5 py-2 my-5 mx-5 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-900 font-semibold">
+          <button class="bg-teal-300 dark:bg-teal-500 px-5 py-2 my-5 mx-5 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-900 dark:text-teal-950 font-semibold">
             <a href={`/queja/${queja.id}`}>Más información</a>
           </button>
         </div>

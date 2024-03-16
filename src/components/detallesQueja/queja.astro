@@ -16,7 +16,7 @@ let { data: usuario } = await supabase
 
 ---
 
-<h2 class="text-teal-800 text-4xl font-bold mb-10 text-center">
+<h2 class="text-teal-800 dark:text-teal-400 text-3xl font-bold mb-10 text-center">
   Detalles de la publicación
 </h2>
 {
@@ -30,11 +30,11 @@ let { data: usuario } = await supabase
           />
         </div>
 
-        <div class="bg-teal-500 rounded my-4 sm:mx-20 sm:my-10 lg:my-16 py-10 text-center lg:mx-56 mx-5">
-          <h2 class="text-teal-950 font-bold text-xl sm:text-3xl mb-4 mx-4 sm:mx-8">
+        <div class="bg-teal-500 dark:bg-zinc-900 rounded my-4 sm:mx-20 sm:my-10 lg:my-16 py-10 text-center lg:mx-56 mx-5">
+          <h2 class="text-teal-950 dark:text-teal-400 font-bold text-xl sm:text-3xl mb-4 mx-4 sm:mx-8">
             {queja.titulo}
           </h2>
-          <h2 class="text-teal-900 font-bold text-xl my-4 mx-4 sm:mx-8">
+          <h2 class="text-teal-900 dark:text-teal-600 font-bold text-xl my-4 mx-4 sm:mx-8">
             Fecha de publicación: {queja.fecha.substring(0, 10)}
           </h2>
 
@@ -42,15 +42,15 @@ let { data: usuario } = await supabase
             {queja.descripcion}
           </p>
 
-          <div class="bg-teal-200 text-teal-800 rounded px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-xl">
+          <div class="bg-teal-200 dark:bg-teal-500 text-teal-800 dark:text-teal-950 rounded px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-l">
             Categoría - {queja.categoria}
           </div>
 
-          <div class="bg-teal-200 text-teal-800 rounded px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-xl">
+          <div class="bg-teal-200 dark:bg-teal-500 text-teal-800 dark:text-teal-950 rounded px-6 py-2 my-5 mx-4 sm:mx-5 inline-block text-l">
             Distrito - {queja.distrito}
           </div>
 
-          <h2 class="text-teal-900 font-bold text-xl my-4 mx-4 sm:mx-8">
+          <h2 class="text-teal-900 dark:text-teal-600 font-bold text-xl my-4 mx-4 sm:mx-8">
             Publicado por: {usuario[0].nombre} {usuario[0].apellidos}
           </h2>
         </div>
