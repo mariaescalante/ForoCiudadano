@@ -10,13 +10,14 @@ let { data: usuario } = await supabase
   .select("*")
   .eq("id", queja[0].usuario);
 
-  const { data } = supabase.storage
-    .from("imagenes")
-    .getPublicUrl(queja[0].imagen);
-
+const { data } = supabase.storage
+  .from("imagenes")
+  .getPublicUrl(queja[0].imagen);
 ---
 
-<h2 class="text-teal-800 dark:text-teal-400 text-3xl font-bold mb-10 text-center">
+<h2
+  class="text-teal-800 dark:text-teal-400 text-3xl font-bold mb-10 text-center"
+>
   Detalles de la publicación
 </h2>
 {

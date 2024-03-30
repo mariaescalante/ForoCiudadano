@@ -73,37 +73,37 @@ for (let i = 0; i < comentario.length; i++) {
       </div>
     ))
 }
-<form id="comentarioForm" style="display: none;" enctype="multipart/form-data">
+<form id="comentarioForm" enctype="multipart/form-data">
   <div
     class="bg-teal-500 dark:bg-zinc-900 rounded my-5 lg:my-10 text-center pb-10 lg:mx-56 mx-5"
   >
     <h2
       class="font-bold mt-10 text-center lg:text-2xl text-xl text-teal-950 dark:text-teal-500 my-10 pt-5"
     >
-      Publica tu propio comentario
+      ¡Deja tu comentario!
     </h2>
-    <div class="inline-block">
+    <div>
       <div class="grid grid-cols-1 gap-2">
         <label
           for="descripcion"
-          class="font-medium text-neutral-100 text-xl mb-3">Descripción</label
+          class="font-medium text-neutral-100 text-xl">Descripción</label
         >
         <textarea
           id="descripcion"
           name="descripcion"
-          rows="6"
-          class="rounded py-1 px-3 border bg-teal-100 dark:bg-teal-200 border-teal-600 mb-8"
+          rows="2"
+          class="rounded py-1 px-3 border bg-teal-100 dark:bg-teal-200 border-teal-600 mb-4 mx-32"
         ></textarea>
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="estrellas" class="font-medium text-neutral-100 text-xl mb-3"
+        <label for="estrellas" class="font-medium text-neutral-100 text-xl"
           >Valoración</label
         >
         <select
           id="estrellas"
           name="estrellas"
-          class="rounded py-1 px-3 border bg-teal-100 dark:bg-teal-200 border-teal-600 mb-8"
+          class="rounded py-1 px-3 border bg-teal-100 dark:bg-teal-200 border-teal-600 mb-8 mx-auto"
         >
           <option value="1">1 estrella</option>
           <option value="2">2 estrellas</option>
@@ -126,11 +126,3 @@ for (let i = 0; i < comentario.length; i++) {
     </div>
   </div>
 </form>
-<div class="flex justify-center items-center">
-  <a
-    id="hacerComentario"
-    href="#"
-    class="bg-teal-300 dark:bg-teal-500 rounded font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950"
-    >Hacer comentario</a
-  >
-</div>

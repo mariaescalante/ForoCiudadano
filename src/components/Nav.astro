@@ -2,7 +2,7 @@
 const currentUrl = new URL(Astro.request.url);
 const currentPath = currentUrl.pathname;
 ---
-<nav class="bg-teal-500 dark:bg-teal-600">
+<nav class="bg-teal-500 dark:bg-teal-600" transition:animate="none">
   <div class="flex items-center justify-between p-2 max-w-screen-xl mx-auto">
     <div>
       <ul class="font-medium flex items-center gap-4">
