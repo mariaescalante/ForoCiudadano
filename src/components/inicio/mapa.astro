@@ -3,72 +3,323 @@
 >
     Haz click en un distrito para acceder a sus quejas
 </h2>
-<div class="flex justify-center mb-10 mx-5">
 
-    <img
-        src="../../public/mapa.jpg"
-        alt="mapa de sevilla"
-        usemap="#zonas"
-        class="rounded"
-    />
+<div class="flex justify-center mb-10 mx-5 relative">
+    <img src="mapa.png" alt="mapa de sevilla" usemap="#zonas" class="rounded" />
+
+    <a
+        href="/filterDistrito?distrito=Nervión"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img id="nervion-img" src="nervion.png" class="hidden" />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Cerro - Amate"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img id="cerro-amate-img" src="cerro-amate.png" class="hidden" />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Este - Alcosa - Torreblanca"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img
+            id="este-alcosa-torreblanca-img"
+            src="este-alcosa-torreblanca.png"
+            class="hidden"
+        />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Norte"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img id="norte-img" src="norte.png" class="hidden" />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=San Pablo - Santa Justa"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img
+            id="sanpablo-santajusta-img"
+            src="sanpablo-santajusta.png"
+            class="hidden"
+        />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Macarena"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img id="macarena-img" src="macarena.png" class="hidden" />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Casco Antiguo"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img id="cascoantiguo-img" src="cascoantiguo.png" class="hidden" />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Sur"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img id="sur-img" src="sur.png" class="hidden" />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Triana"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img id="triana-img" src="triana.png" class="hidden" />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Bellavista - La Palmera"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img
+            id="bellavista-lapalmera-img"
+            src="bellavista-lapalmera.png"
+            class="hidden"
+        />
+    </a>
+
+    <a
+        href="/filterDistrito?distrito=Los Remedios"
+        class="flex items-center justify-center absolute"
+        style="top: Ypx; left: Xpx;"
+    >
+        <img id="losremedios-img" src="losremedios.png" class="hidden" />
+    </a>
+
 </div>
-    <map name="zonas">
-        <area
-            shape="poly"
-            coords="249,315, 256,315, 266,325, 269,320, 287,341, 328,345, 323,381, 309,398, 279,383, 261,379, 251,371, 234,366, 247,346"
-            href="/filterDistrito?distrito=Nervión"
-        />
-        <area
-            shape="poly"
-            coords="328,345, 424,349, 461,352, 460,363, 474,373, 474,403, 363,435, 320,411, 317,417, 309,413, 314,404, 309,398, 322,384"
-            href="/filterDistrito?distrito=Cerro - Amate"
-        />
-        <area
-            shape="poly"
-            coords="249,315, 256,315, 266,325, 269,320, 287,341, 328,345, 391,349, 366,254, 353,257, 342,271, 331,276, 297,275, 282,278, 263,297, 259,297, 250,307"
-            href="/filterDistrito?distrito=San Pablo - Santa Justa"
-        />
-        <area
-            shape="poly"
-            coords="366,254, 388,252, 447,222, 489,209, 507,196, 555,164, 613,241, 623,273, 642,292, 727,324, 795,317, 796,348, 721,359, 704,355, 569,356, 513,395, 498,391, 491,399, 474,403, 474,373, 460,363 461,352, 424,349, 391,349"
-            href="/filterDistrito?distrito=Este - Alcosa - Torreblanca"
-        />
-        <area
-            shape="poly"
-            coords="231,229, 253,230, 254,220, 262,219, 274,197, 287,229, 297,275, 366,254, 353,257, 342,271, 331,276, 388,252, 447,222, 489,209, 507,196, 555,164, 518,122, 473,98, 440,94, 377,76, 249,83, 231,94, 202,87, 170,108, 183,151, 233,187, 231,188, 235,193, 235,218"
-            href="/filterDistrito?distrito=Norte"
-        />
-        <area
-            shape="poly"
-            coords="231,229, 253,230, 254,220, 262,219, 274,197, 287,229, 297,275, 282,278, 263,297, 259,297, 247,282, 244,272, 234,273, 226,264, 213,269, 207,265"
-            href="/filterDistrito?distrito=Macarena"
-        />
-        <area
-            shape="poly"
-            coords="259,297, 247,282, 244,272, 234,273, 226,264, 213,269, 207,265, 188,283, 174,313, 174,328, 179,335, 184,337, 194,345, 200,364, 205,371, 210,375, 213,389, 231,374, 234,366 247,346, 249,315, 250,307"
-            href="/filterDistrito?distrito=Casco Antiguo"
-        />
-        <area
-            shape="poly"
-            coords="231,188, 231,229, 235,193, 235,218, 207,265, 200,364, 194,345, 184,337, 179,335, 174,328, 174,313, 188,283, 205,371, 148,399, 147, 414, 125,418, 132,407, 121,392, 125,374, 114,347, 117,320, 146,285, 160,224, 215,206, 218,195"
-            href="/filterDistrito?distrito=Triana"
-        />
-        <area
-            shape="poly"
-            coords="381,489, 339,464, 334,475, 323,475, 312,481, 296,481, 282,488, 277,461, 259,465, 253,471, 258,460, 239,414, 215,415, 213,389, 231,374, 234,366, 251,371, 261,379, 279,383, 309,398, 314,404, 309,413, 317,417, 320,411, 363,435, 389,446, 396,454"
-            href="/filterDistrito?distrito=Sur"
-        />
-        <area
-            shape="poly"
-            coords="205,371, 148,399, 147,414, 125,418, 120,424, 121,551, 171, 600, 178,622, 209,630, 215,620, 215,579, 210,567, 211,508, 215,475, 215,415, 213,389, 210,375"
-            href="/filterDistrito?distrito=Los remedios"
-        />
-        <area
-            shape="poly"
-            coords="209,630, 215,620, 215,579, 210,567, 211,508, 215,475, 215,415, 239,414, 239,414, 253,471, 259,465, 277,461, 282,488, 296,481, 312,481, 323,475, 334,475, 339,464, 381,489, 332,568, 328,587, 306,612, 289,654"
-            href="/filterDistrito?distrito=Bellavista - La Palmera"
-            class="hover:bg-white"
 
-        />
-    </map>
-    
+<map name="zonas">
+    <area
+        shape="poly"
+        coords="249,315, 256,315, 266,325, 269,320, 287,341, 328,345, 323,381, 309,398, 279,383, 261,379, 251,371, 234,366, 247,346"
+        href="/filterDistrito?distrito=Nervión"
+    />
+    <area
+        shape="poly"
+        coords="328,345, 424,349, 461,352, 460,363, 474,373, 474,403, 363,435, 320,411, 317,417, 309,413, 314,404, 309,398, 322,384"
+        href="/filterDistrito?distrito=Cerro - Amate"
+    />
+    <area
+        shape="poly"
+        coords="249,315, 256,315, 266,325, 269,320, 287,341, 328,345, 391,349, 366,254, 353,257, 342,271, 331,276, 297,275, 282,278, 263,297, 259,297, 250,307"
+        href="/filterDistrito?distrito=San Pablo - Santa Justa"
+    />
+    <area
+        shape="poly"
+        coords="366,254, 388,252, 447,222, 489,209, 507,196, 555,164, 613,241, 623,273, 642,292, 727,324, 795,317, 796,348, 721,359, 704,355, 569,356, 513,395, 498,391, 491,399, 474,403, 474,373, 460,363 461,352, 424,349, 391,349"
+        href="/filterDistrito?distrito=Este - Alcosa - Torreblanca"
+    />
+    <area
+        shape="poly"
+        coords="231,229, 253,230, 254,220, 262,219, 274,197, 287,229, 297,275, 366,254, 353,257, 342,271, 331,276, 388,252, 447,222, 489,209, 507,196, 555,164, 518,122, 473,98, 440,94, 377,76, 249,83, 231,94, 202,87, 170,108, 183,151, 233,187, 231,188, 235,193, 235,218"
+        href="/filterDistrito?distrito=Norte"
+    />
+    <area
+        shape="poly"
+        coords="231,229, 253,230, 254,220, 262,219, 274,197, 287,229, 297,275, 282,278, 263,297, 259,297, 247,282, 244,272, 234,273, 226,264, 213,269, 207,265"
+        href="/filterDistrito?distrito=Macarena"
+    />
+    <area
+        shape="poly"
+        coords="259,297, 247,282, 244,272, 234,273, 226,264, 213,269, 207,265, 188,283, 174,313, 174,328, 179,335, 184,337, 194,345, 200,364, 205,371, 210,375, 213,389, 231,374, 234,366 247,346, 249,315, 250,307"
+        href="/filterDistrito?distrito=Casco Antiguo"
+    />
+    <area
+        shape="poly"
+        coords="231,188, 231,229, 235,193, 235,218, 207,265, 200,364, 194,345, 184,337, 179,335, 174,328, 174,313, 188,283, 205,371, 148,399, 147, 414, 125,418, 132,407, 121,392, 125,374, 114,347, 117,320, 146,285, 160,224, 215,206, 218,195"
+        href="/filterDistrito?distrito=Triana"
+    />
+    <area
+        shape="poly"
+        coords="381,489, 339,464, 334,475, 323,475, 312,481, 296,481, 282,488, 277,461, 259,465, 253,471, 258,460, 239,414, 215,415, 213,389, 231,374, 234,366, 251,371, 261,379, 279,383, 309,398, 314,404, 309,413, 317,417, 320,411, 363,435, 389,446, 396,454"
+        href="/filterDistrito?distrito=Sur"
+    />
+    <area
+        shape="poly"
+        coords="205,371, 148,399, 147,414, 125,418, 120,424, 121,551, 171, 600, 178,622, 209,630, 215,620, 215,579, 210,567, 211,508, 215,475, 215,415, 213,389, 210,375"
+        href="/filterDistrito?distrito=Los Remedios"
+    />
+    <area
+        shape="poly"
+        coords="209,630, 215,620, 215,579, 210,567, 211,508, 215,475, 215,415, 239,414, 239,414, 253,471, 259,465, 277,461, 282,488, 296,481, 312,481, 323,475, 334,475, 339,464, 381,489, 332,568, 328,587, 306,612, 289,654"
+        href="/filterDistrito?distrito=Bellavista - La Palmera"
+        class="hover:scale-105"
+    />
+</map>
+
+<script>
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Cerro - Amate"]')!
+        .addEventListener("mouseover", function () {
+            document
+                .getElementById("cerro-amate-img")!
+                .classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Cerro - Amate"]')!
+        .addEventListener("mouseout", function () {
+            document.getElementById("cerro-amate-img")!.classList.add("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Nervión"]')!
+        .addEventListener("mouseover", function () {
+            document.getElementById("nervion-img")!.classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Nervión"]')!
+        .addEventListener("mouseout", function () {
+            document.getElementById("nervion-img")!.classList.add("hidden");
+        });
+
+    document
+        .querySelector(
+            'area[href="/filterDistrito?distrito=Este - Alcosa - Torreblanca"]',
+        )!
+        .addEventListener("mouseover", function () {
+            document
+                .getElementById("este-alcosa-torreblanca-img")!
+                .classList.remove("hidden");
+        });
+
+    document
+        .querySelector(
+            'area[href="/filterDistrito?distrito=Este - Alcosa - Torreblanca"]',
+        )!
+        .addEventListener("mouseout", function () {
+            document
+                .getElementById("este-alcosa-torreblanca-img")!
+                .classList.add("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Norte"]')!
+        .addEventListener("mouseover", function () {
+            document.getElementById("norte-img")!.classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Norte"]')!
+        .addEventListener("mouseout", function () {
+            document.getElementById("norte-img")!.classList.add("hidden");
+        });
+
+    document
+        .querySelector(
+            'area[href="/filterDistrito?distrito=San Pablo - Santa Justa"]',
+        )!
+        .addEventListener("mouseover", function () {
+            document
+                .getElementById("sanpablo-santajusta-img")!
+                .classList.remove("hidden");
+        });
+
+    document
+        .querySelector(
+            'area[href="/filterDistrito?distrito=San Pablo - Santa Justa"]',
+        )!
+        .addEventListener("mouseout", function () {
+            document
+                .getElementById("sanpablo-santajusta-img")!
+                .classList.add("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Casco Antiguo"]')!
+        .addEventListener("mouseover", function () {
+            document
+                .getElementById("cascoantiguo-img")!
+                .classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Casco Antiguo"]')!
+        .addEventListener("mouseout", function () {
+            document
+                .getElementById("cascoantiguo-img")!
+                .classList.add("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Macarena"]')!
+        .addEventListener("mouseover", function () {
+            document.getElementById("macarena-img")!.classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Macarena"]')!
+        .addEventListener("mouseout", function () {
+            document.getElementById("macarena-img")!.classList.add("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Triana"]')!
+        .addEventListener("mouseover", function () {
+            document.getElementById("triana-img")!.classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Triana"]')!
+        .addEventListener("mouseout", function () {
+            document.getElementById("triana-img")!.classList.add("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Bellavista - La Palmera"]')!
+        .addEventListener("mouseover", function () {
+            document.getElementById("bellavista-lapalmera-img")!.classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Bellavista - La Palmera"]')!
+        .addEventListener("mouseout", function () {
+            document.getElementById("bellavista-lapalmera-img")!.classList.add("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Los Remedios"]')!
+        .addEventListener("mouseover", function () {
+            document.getElementById("losremedios-img")!.classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Los Remedios"]')!
+        .addEventListener("mouseout", function () {
+            document.getElementById("losremedios-img")!.classList.add("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Sur"]')!
+        .addEventListener("mouseover", function () {
+            document.getElementById("sur-img")!.classList.remove("hidden");
+        });
+
+    document
+        .querySelector('area[href="/filterDistrito?distrito=Sur"]')!
+        .addEventListener("mouseout", function () {
+            document.getElementById("sur-img")!.classList.add("hidden");
+        });
+</script>
