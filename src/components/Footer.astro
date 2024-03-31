@@ -1,31 +1,29 @@
----
-import CambiarTema from "../components/cambiarTema.jsx";
----
-
 <footer class="bg-teal-500 dark:bg-teal-600 py-10 mt-10" transition:animate="none">
-  <div
-    class="container mx-auto flex flex-col md:flex-row justify-evenly text-center md:text-left gap-4 text-teal-950"
-  >
+  <div class="container mx-auto flex flex-col md:flex-row justify-evenly text-center md:text-left gap-0 text-teal-950">
+    
     <div>
-      <h4 class="font-bold text-xl">Site Map</h4>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/pricing">Pricing</a>
+      <h4 class="font-bold text-xl">Contacta con nosotros</h4>
+      <p>Email: quejaciudadana@gmail.com</p>
+      <p>Teléfono: +34 123 456 789</p>
     </div>
+    
     <div>
-      <h4 class="font-bold text-xl">Site Map</h4>
-      <p>Lorem ipsum</p>
-      <p>Lorem ipsum</p>
-      <p>Lorem ipsum</p>
+      <h4 class="font-bold text-xl">Información legal</h4>
+      <a href="/privacidad" class="inline-block transform hover:scale-105 transition-all hover:contrast-125">Política de Privacidad</a><br/>
+      <a href="/terminos" class="inline-block transform hover:scale-105 transition-all hover:contrast-125">Términos de Uso</a>
     </div>
+    
     <div>
-      <h4 class="font-bold text-xl">Social Links</h4>
-      <a href="http://www.facebook.com">Facebook</a>
-      <a href="http://www.instagram.com">Instagram</a>
-      <a href="http://www.twitter.com">Twitter</a>
+      <h4 class="font-bold text-xl">Síguenos</h4>
+      <a href="http://www.facebook.com" target="_blank"><i class="fab fa-facebook text-3xl hover:scale-125 transition-all hover:contrast-125"></i></a>
+      <a href="http://www.instagram.com" target="_blank"><i class="fab fa-instagram text-3xl hover:scale-125 transition-all hover:contrast-125"></i></a>
+      <a href="http://www.twitter.com" target="_blank"><i class="fab fa-twitter text-3xl hover:scale-125 transition-all hover:contrast-125"></i></a>      
     </div>
+
     <div>
-      <CambiarTema client:only/>
+      <h4 class="font-bold text-xl">Sobre nosotros</h4>
+      <a href="/about" class="inline-block transform hover:scale-105 transition-all hover:contrast-125">About</a>
     </div>
+
   </div>
 </footer>
