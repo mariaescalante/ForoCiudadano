@@ -17,6 +17,7 @@ function cambiarTema() {
 
   const handleChangeTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    window.location.reload();
   };
 
   return (
