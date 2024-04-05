@@ -22,7 +22,7 @@ defaults.responsive = true;
 defaults.plugins.title.display = true;
 defaults.plugins.title.align = "start";
 
-const diagrama = () => {
+const QuejasPorDistrito = () => {
   const [theme, setTheme] = useState(() => {
     const localTheme = window.localStorage.getItem('theme');
     return localTheme ? localTheme : 'light';
@@ -109,4 +109,4 @@ const diagrama = () => {
     </div>
   );
 };
-export default diagrama;
+export default QuejasPorDistrito;

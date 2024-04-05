@@ -3,7 +3,8 @@ import Slogan from '../components/inicio/Slogan.astro'
 import Servicios from '../components/inicio/Servicios.astro'
 import Mapa from '../components/inicio/mapa.astro'
 import Base from '../layout/Base.astro'
-import EstadisticasDiagrama from '../components/estadisticas/diagrama'
+import QuejasPorDistrito from '../components/estadisticas/quejasPorDistrito'
+import UsuariosMejorValorados from '../components/estadisticas/usuariosMejorValorados'
 
 
 ---
@@ -12,5 +13,6 @@ import EstadisticasDiagrama from '../components/estadisticas/diagrama'
 	<Slogan />
 	<Servicios />	
 	<Mapa />
-	<EstadisticasDiagrama client:only/>	
+	<QuejasPorDistrito client:only/>
+	<UsuariosMejorValorados client:only/>
 </Base>
