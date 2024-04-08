@@ -11,11 +11,11 @@ let { data: comentarios_por_estrellas, error } = await supabase
     .select('*')
 
 let estrellas = [];
-let numero_comentarios = [];
+let porcentaje_comentarios = [];
 
 comentarios_por_estrellas.forEach(item => {
-    estrellas.push(item.estrellas);
-    numero_comentarios.push(item.numero_comentarios);
+    estrellas.push(item.estrella);
+    porcentaje_comentarios.push(item.porcentaje_comentarios);
 });
 
 defaults.maintainAspectRatio = false;
@@ -31,8 +31,8 @@ const comentaiosPorEstrellas = () => {
         const localTheme = window.localStorage.getItem('theme');
         return localTheme ? localTheme : 'light';
     });
-
-    const [fontSize, setFontSize] = useState(window.innerWidth >= 768 ? 16 : 6);
+    const labelColor = theme === 'light' ? "#03362D" : "#ffffff";
+    const [fontSize, setFontSize] = useState(window.innerWidth >= 768 ? 20 : 6);
 
     useEffect(() => {
         const handleResize = () => {
@@ -63,12 +63,12 @@ const comentaiosPorEstrellas = () => {
                     labels: estrellas.map(e => `${e} estrellas`),
                     datasets: [
                         {
-                            label: "Count",
-                            data: numero_comentarios,
+                            label: "Porcentaje",
+                            data: porcentaje_comentarios,
                             backgroundColor: [
                                 "#14B8A6",
                                 "#0C7065",
-                                "#0DFCD6",
+                                "#B0FCD9",
                                 "#033B32",
                                 "#10B879",
                             ],
@@ -81,7 +81,7 @@ const comentaiosPorEstrellas = () => {
                     plugins: {
                         legend: {
                             labels: {
-                                color: 'red',
+                                color: labelColor,
                                 fontSize: fontSize
                             },
                         },

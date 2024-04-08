@@ -1,0 +1,256 @@
+---
+import { supabase } from "../../../public/supabase.js";
+
+let { data: media_valoraciones_por_usuario } = await supabase
+    .from("media_valoraciones_por_usuario")
+    .select("*")
+    .order("media_valoraciones", { ascending: false })
+    .range(0, 0);
+
+let { data: quejas_por_distrito } = await supabase
+    .from("quejas_por_distrito")
+    .select("*");
+
+let quejasAgrupadasPorTotal = quejas_por_distrito.reduce((acc, queja) => {
+    if (!acc[queja.total_quejas]) {
+        acc[queja.total_quejas] = [];
+    }
+    acc[queja.total_quejas].push(queja.distrito);
+    return acc;
+}, {});
+
+let quejasAgrupadasPorTotalArray = Object.entries(quejasAgrupadasPorTotal).map(
+    ([total_quejas, distritos]) => ({
+        total_quejas: parseInt(total_quejas),
+        distritos,
+    }),
+);
+
+let quejasAgrupadasPorTotalOrdenadas = quejasAgrupadasPorTotalArray.sort(
+    (a, b) => b.total_quejas - a.total_quejas,
+);
+
+let distritosConMasQuejas = quejasAgrupadasPorTotalOrdenadas[0].distritos;
+let distritosConMenosQuejas =
+    quejasAgrupadasPorTotalOrdenadas[
+        quejasAgrupadasPorTotalOrdenadas.length - 1
+    ].distritos;
+
+let { data: comentarios_por_estrellas } = await supabase
+    .from("comentarios_por_estrellas")
+    .select("*")
+    .order("estrella", { ascending: true });
+---
+
+<h2
+    class="text-2xl md:text-3xl lg:text-3xl font-bold mb-4 text-center text-teal-800 dark:text-neutral-300"
+>
+    ¡ Novedades !
+</h2>
+<section
+    class="bg-teal-500 dark:bg-teal-600 p-8 md:p-10 rounded lg:mx-56 mx-5 mb-5"
+>
+    <h2
+        class="text-2xl md:text-3xl lg:text-3xl font-bold mb-4 text-center text-teal-100 dark:text-teal-950 hover:scale-110 transition-all hover:contrast-75"
+    >
+        <a
+            href="#"
+            onclick="window.location.href='/usuariosMejorValorados'; return false;"
+            class="text-inherit"
+        >
+            <i class="fas fa-medal mr-2"></i> Usuario mejor valorado <i
+                class="fas fa-medal mr-2"></i>
+        </a>
+    </h2>
+    <p
+        class="text-lg md:text-xl lg:text-xl text-neutral-100 dark:text-zinc-900 text-center"
+    >
+        El usuario mejor valorado es
+        <span class="font-bold text-2xl text-zinc-900 dark:text-neutral-100">
+            {
+                media_valoraciones_por_usuario &&
+                    media_valoraciones_por_usuario[0]?.nombre_usuario
+            }
+            {
+                media_valoraciones_por_usuario &&
+                    media_valoraciones_por_usuario[0]?.apellidos_usuario
+            }
+        </span>
+        con una media de
+
+        <div class="text-teal-500 flex justify-center items-center">
+            {
+                [
+                    ...Array(
+                        Math.floor(
+                            media_valoraciones_por_usuario &&
+                                media_valoraciones_por_usuario[0]
+                                    .media_valoraciones,
+                        ),
+                    ),
+                ].map(() => (
+                    <svg
+                        class="w-7 h-7 text-yellow-300 ms-1"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 22 20"
+                    >
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                ))
+            }
+            {
+                media_valoraciones_por_usuario &&
+                    media_valoraciones_por_usuario[0]?.media_valoraciones % 1 >
+                        0 && (
+                        <div class="relative w-7 h-7 ms-1">
+                            <svg
+                                class="absolute top-0 left-0 w-full h-full text-gray-300 dark:text-gray-500"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                            >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg
+                                class="absolute top-0 left-0 w-full h-full text-yellow-300"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                                style={`clip-path: inset(0 ${100 - (media_valoraciones_por_usuario[0].media_valoraciones % 1) * 100}% 0 0);`}
+                            >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                        </div>
+                    )
+            }
+            {
+                [
+                    ...Array(
+                        5 -
+                            Math.ceil(
+                                media_valoraciones_por_usuario &&
+                                    media_valoraciones_por_usuario[0]
+                                        .media_valoraciones,
+                            ),
+                    ),
+                ].map(() => (
+                    <svg
+                        class="w-7 h-7 ms-1 text-gray-300 dark:text-gray-500"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 22 20"
+                    >
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                ))
+            }
+        </div>
+    </p>
+</section>
+
+<section class="bg-teal-500 dark:bg-teal-600 p-8 md:p-10 rounded lg:mx-56 mx-5">
+    <h2
+        class="text-2xl md:text-3xl lg:text-3xl font-bold mb-4 text-center text-teal-100 dark:text-teal-950 hover:scale-110 transition-all hover:contrast-75"
+    >
+        <a
+            href="#"
+            onclick="window.location.href='/quejasPorDistrito'; return false;"
+            class="text-inherit"
+        >
+            <i class="fas fa-map-marker-alt mr-2"></i> Distritos con menor y mayor
+            número de quejas <i class="fas fa-map-marker-alt mr-2"></i>
+        </a>
+    </h2>
+
+    <div class="flex justify-between">
+        <div>
+            <p
+                class="text-lg md:text-xl lg:text-xl text-neutral-100 dark:text-zinc-900 text-center"
+            >
+                Los distritos con <span
+                    class="font-bold text-2xl text-zinc-900 dark:text-neutral-100"
+                >
+                    menor
+                </span> número de quejas son:
+            </p>
+            <ul class="text-center mt-2">
+                <span
+                    class="font-bold text-2xl text-zinc-900 dark:text-neutral-100"
+                >
+                    {
+                        distritosConMenosQuejas.map((distrito) => (
+                            <li>{distrito}</li>
+                        ))
+                    }
+                </span>
+            </ul>
+        </div>
+        <div>
+            <p
+                class="text-lg md:text-xl lg:text-xl text-neutral-100 dark:text-zinc-900 text-center"
+            >
+                Los distritos con <span
+                    class="font-bold text-2xl text-zinc-900 dark:text-neutral-100"
+                >
+                    mayor
+                </span> número de quejas son:
+            </p>
+            <ul class="text-center mt-2">
+                <span
+                    class="font-bold text-2xl text-zinc-900 dark:text-neutral-100"
+                >
+                    {
+                        distritosConMasQuejas.map((distrito: string) => (
+                            <li>{distrito}</li>
+                        ))
+                    }
+                </span>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section
+    class="bg-teal-500 dark:bg-teal-600 p-8 md:p-10 rounded lg:mx-56 mx-5 mt-5"
+>
+    <h2
+        class="text-2xl md:text-3xl lg:text-3xl font-bold mb-4 text-center text-teal-100 dark:text-teal-950 hover:scale-110 transition-all hover:contrast-75"
+    >
+        <a
+            href="#"
+            onclick="window.location.href='/comentariosPorEstrellas'; return false;"
+            class="text-inherit"
+        >
+            <i class="fas fa-comment-dots mr-2"></i> Comentarios por estrellas <i
+                class="fas fa-comment-dots mr-2"></i>
+        </a>
+    </h2>
+
+    <p
+        class="text-lg md:text-xl lg:text-xl text-neutral-100 dark:text-zinc-900 text-center"
+    >
+    </p>
+    <ul class="text-center mt-2 text-neutral-100 dark:text-zinc-900">
+        {
+            comentarios_por_estrellas.map((comentario) => (
+                <li>
+                    El
+                    <span class="font-bold text-2xl text-zinc-900 dark:text-neutral-100">
+                        {" "}
+                        {comentario.porcentaje_comentarios} %
+                    </span>
+                    de los comentarios puntúan
+                    <span class="font-bold text-2xl text-zinc-900 dark:text-neutral-100">
+                        {" "}
+                        {comentario.estrella} estrellas{" "}
+                    </span>{" "}
+                </li>
+            ))
+        }
+    </ul>
+</section>

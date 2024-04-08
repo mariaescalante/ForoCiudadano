@@ -1,0 +1,15 @@
+---
+import Base from "../layout/Base.astro";
+import ComentariosPorEstrellasComponent from "../components/estadisticas/comentariosPorEstrellas";
+---
+
+<Base title="Usuarios mejor valorados">
+    <ComentariosPorEstrellasComponent client:only />
+    <div class="flex justify-center">
+        <button
+            class="bg-teal-300 dark:bg-teal-500 rounded font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950 mt-5"
+            onclick="window.history.back()">Volver</button
+        >
+    </div>
+
+</Base>

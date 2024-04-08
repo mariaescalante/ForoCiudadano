@@ -3,16 +3,13 @@ import Slogan from "../components/inicio/Slogan.astro";
 import Servicios from "../components/inicio/Servicios.astro";
 import Mapa from "../components/inicio/mapa.astro";
 import Base from "../layout/Base.astro";
-import QuejasPorDistrito from "../components/estadisticas/quejasPorDistrito";
-import UsuariosMejorValorados from "../components/estadisticas/usuariosMejorValorados";
-import Comentarios_por_estrellas from "../components/estadisticas/comentarios_por_estrellas";
+import Novedades from "../components/estadisticas/Novedades.astro";
+
 ---
 
 <Base title="Inicio">
 	<Slogan />
-	<Servicios />
 	<Mapa />
-	<QuejasPorDistrito client:only />
-	<UsuariosMejorValorados client:only />
-	<Comentarios_por_estrellas client:only />
+	<Novedades />
+	<Servicios />
 </Base>
