@@ -31,7 +31,7 @@ for (let i = 0; i < comentario.length; i++) {
 {
   comentario &&
     comentario.map((comentario) => (
-      <div class="bg-teal-400 rounded my-2 sm:mx-20 sm:my-6 lg:my-10 py-3 lg:mx-56 mx-5 p-10">
+      <div class="bg-teal-400 my-2 sm:mx-20 sm:my-6 lg:my-10 py-3 lg:mx-56 mx-5 p-10">
         <div class="flex justify-between items-center">
           <div class="flex items-center">
             <h2 class="text-teal-900 font-bold text-l lg:text-xl mr-4">
@@ -75,7 +75,7 @@ for (let i = 0; i < comentario.length; i++) {
 }
 <form id="comentarioForm" enctype="multipart/form-data">
   <div
-    class="bg-teal-500 dark:bg-zinc-900 rounded my-5 lg:my-10 text-center pb-10 lg:mx-56 mx-5"
+    class="my-5 lg:my-10 text-center pb-10 lg:mx-56 mx-5"
   >
     <h2
       class="font-bold mt-10 text-center lg:text-2xl text-xl text-teal-950 dark:text-teal-500 my-10 pt-5"
@@ -86,24 +86,24 @@ for (let i = 0; i < comentario.length; i++) {
       <div class="grid grid-cols-1 gap-2">
         <label
           for="descripcion"
-          class="font-medium text-neutral-100 text-xl">Descripción</label
+          class="font-medium text-teal-800 dark:text-neutral-100 text-xl">Descripción</label
         >
         <textarea
           id="descripcion"
           name="descripcion"
           rows="2"
-          class="rounded py-1 px-3 border bg-teal-100 dark:bg-teal-200 border-teal-600 mb-4 mx-32"
+          class="py-1 px-3 border bg-teal-100 dark:bg-teal-200 border-teal-600 mb-4 mx-32"
         ></textarea>
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="estrellas" class="font-medium text-neutral-100 text-xl"
+        <label for="estrellas" class="font-medium text-xl text-teal-800 dark:text-neutral-100"
           >Valoración</label
         >
         <select
           id="estrellas"
           name="estrellas"
-          class="rounded py-1 px-3 border bg-teal-100 dark:bg-teal-200 border-teal-600 mb-8 mx-auto"
+          class="py-1 px-3 border bg-teal-100 dark:bg-teal-200 border-teal-600 mb-8 mx-auto"
         >
           <option value="1">1 estrella</option>
           <option value="2">2 estrellas</option>
@@ -118,7 +118,7 @@ for (let i = 0; i < comentario.length; i++) {
 
       <button
         id="publicarComentario"
-        class="bg-teal-300 dark:bg-teal-500 rounded font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950"
+        class="bg-teal-300 dark:bg-teal-500 font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950"
         >Publicar comentario
       </button>
 

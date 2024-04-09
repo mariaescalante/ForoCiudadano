@@ -55,7 +55,7 @@ export function Reviews({ reviews }: { reviews: GuestbookEntry[] }) {
       <ErrorBoundary fallback={<div>Something went wrong</div>}>
         <form
           onsubmit={onSubmitHandler}
-          class="block border bg-blue-100 border-blue-300 rounded-md p-6 dark:bg-blue-950 dark:border-blue-800"
+          class="block border bg-blue-100 border-blue-300 p-6 dark:bg-blue-950 dark:border-blue-800"
         >
           <div>
             <label

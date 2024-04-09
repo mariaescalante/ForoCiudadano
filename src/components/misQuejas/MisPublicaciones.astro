@@ -37,7 +37,7 @@ const quejasPaginadas = quejas?.slice(
 {
   quejasPaginadas &&
     quejasPaginadas.map((queja) => (
-      <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-teal-300 dark:bg-zinc-700 rounded my-5 lg:my-10 lg:mx-56 mx-5 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
+      <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-teal-300 dark:bg-zinc-700 my-5 lg:my-10 lg:mx-56 mx-5 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
         <div class="flex items-center">
           <a href={`/queja/${queja.id}`} class="block">
             <img
@@ -46,7 +46,7 @@ const quejasPaginadas = quejas?.slice(
             />
           </a>
         </div>
-        <div class="bg-teal-500 dark:bg-zinc-900 rounded flex-1 pb-10">
+        <div class="bg-teal-500 dark:bg-zinc-900 flex-1 pb-10">
           <div class="flex justify-between">
             <a href={`/queja/${queja.id}`} class="block">
               <h2 class="text-teal-950 dark:text-teal-400 font-bold text-lg lg:text-xl my-4 mx-8 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">

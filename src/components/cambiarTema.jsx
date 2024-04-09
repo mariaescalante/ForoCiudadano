@@ -23,7 +23,7 @@ function cambiarTema() {
   return (
     <div>
       <button
-        className="rounded hover:scale-125 transition-all hover:contrast-125"
+        className="hover:scale-125 transition-all hover:contrast-125"
         onClick={handleChangeTheme}
       >
         {theme === 'light' ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}

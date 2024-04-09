@@ -4,7 +4,7 @@ const { email } = Astro.locals;
 
 <form id="quejaForm" enctype="multipart/form-data">
   <div
-    class="rounded my-5 lg:my-10 text-center pb-10 lg:mx-56 mx-5"
+    class="my-5 lg:my-10 text-center pb-10 lg:mx-56 mx-5"
   >
     <h2
       class="font-bold mt-10 text-center lg:text-2xl text-l text-teal-950 dark:text-teal-500 my-10 pt-10"
@@ -24,7 +24,7 @@ const { email } = Astro.locals;
           type="file"
           name="imagen"
           accept="image/*"
-          class="rounded py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
+          class="py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
         />
       </div>
 
@@ -36,7 +36,7 @@ const { email } = Astro.locals;
           id="titulo"
           type="text"
           name="titulo"
-          class="rounded py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
+          class="py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
         />
       </div>
 
@@ -49,7 +49,7 @@ const { email } = Astro.locals;
           id="descripcion"
           name="descripcion"
           rows="6"
-          class="rounded py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
+          class="py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
         ></textarea>
       </div>
 
@@ -60,7 +60,7 @@ const { email } = Astro.locals;
         <select
           id="categoria"
           name="categoria"
-          class="rounded py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
+          class="py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
         >
           <option value="Infraestructura / Urbanismo"
             >Infraestructura / Urbanismo</option
@@ -81,7 +81,7 @@ const { email } = Astro.locals;
         <select
           id="distrito"
           name="distrito"
-          class="rounded py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
+          class="py-1 px-3 border bg-teal-200 dark:bg-teal-200 border-teal-600 mb-8"
         >
           <option value="Bellavista - La Palmera"
             >Bellavista - La Palmera</option
@@ -105,7 +105,7 @@ const { email } = Astro.locals;
 
       <button
         id="publicarQueja"
-        class="bg-teal-300 dark:bg-teal-500 rounded font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950"
+        class="bg-teal-300 dark:bg-teal-500 font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950"
         >Publicar queja</button
       >
 
