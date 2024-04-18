@@ -35,7 +35,7 @@ const quejasPaginadas = quejas?.slice(
 ---
 
 {
-  quejasPaginadas &&
+  quejasPaginadas && quejasPaginadas.length > 0 ? (
     quejasPaginadas.map((queja) => (
       <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-teal-300 dark:bg-zinc-700 my-5 lg:my-10 lg:mx-56 mx-5 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
         <div class="flex items-center">
@@ -69,6 +69,14 @@ const quejasPaginadas = quejas?.slice(
         </div>
       </div>
     ))
+  ) : (
+    <div class="flex justify-center items-center flex-col mt-10">
+      <h1 class="text-center font-bold text-2xl text-teal-950 dark:text-teal-300">¡Aún no has publicado nada!</h1>
+      <button class="bg-teal-300 dark:bg-teal-500 px-5 py-2 my-5 mx-5 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-900 font-semibold hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
+        <a href="/crearQueja">Publica tu primera queja</a>
+      </button>
+    </div>
+  )
 }
 <Pagination
   currentPage={currentPage}
