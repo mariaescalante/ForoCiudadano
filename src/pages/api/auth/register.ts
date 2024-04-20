@@ -11,7 +11,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
 
   if (!email || !password || !nombre || !apellidos || !telefono) {
-    return new Response("Debe rellenar todos los campos", { status: 400 });
+    return redirect("/failedRegister");
   }
 
   const { error } = await supabase.auth.signUp({
@@ -20,7 +20,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   });
 
   if (error) {
-    return new Response(error.message, { status: 500 });
+    return redirect("/failedRegister");
   }
 
   if (error == null) {
@@ -33,6 +33,8 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     if (error != null && error['message'] == 'duplicate key value violates unique constraint "usuarios_email_key"') {
       return new Response("Este email ya está registrado", { status: 400 });
     }
+  } else {
+    redirect("/error");
   }
 
   return redirect("/confirmEmail");

@@ -1,58 +1,8 @@
 ---
 import Base from "../layout/Base.astro";
-import { supabase } from "../../public/supabase.js";
-
-const query: string | null = Astro.url.searchParams.get("query");
-
-let { data: quejas } = await supabase.from("Queja").select("*");
-
-for (let i = 0; i < quejas.length; i++) {
-  const { data } = supabase.storage
-    .from("imagenes")
-    .getPublicUrl(quejas[i].imagen);
-  quejas[i].imagen = data.publicUrl;
-}
-
-const resultadosBusqueda = quejas?.filter((queja) => {
-  const tituloMatch: boolean = queja.titulo
-    .toLowerCase()
-    .includes(query!.toLowerCase());
-  const descripcionMatch: boolean = queja.descripcion
-    .toLowerCase()
-    .includes(query!.toLowerCase());
-
-  return tituloMatch || descripcionMatch;
-});
+import Busqueda from "../components/busqueda/busqueda.astro";
 ---
 
-<Base title="Resultados de la búsqueda">
-  {
-    resultadosBusqueda &&
-      resultadosBusqueda.map((queja) => (
-        <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-teal-300 dark:bg-zinc-700 my-5 lg:my-10 lg:mx-56 mx-5">
-          <div class="flex items-center">
-            <img src={queja.imagen} class="w-auto h-4/5 lg:w-96 m-auto" />
-          </div>
-          <div class="bg-teal-500 dark:bg-zinc-900 flex-1 pb-10">
-            <div class="flex justify-between">
-              <h2 class="text-teal-950 dark:text-teal-400 font-bold text-lg lg:text-xl my-4 mx-8">
-                {queja.titulo}
-              </h2>
-              <h2 class="text-teal-900 dark:text-teal-600  font-bold text-l my-4 mx-8">
-                {queja.fecha.substring(0, 10)}
-              </h2>
-            </div>
-            <p class="text-am lg:text-l mx-10 text-neutral-100 dark:text-neutral-100">
-              {queja.descripcion}
-            </p>
-            <div class="bg-teal-300 dark:bg-teal-500 text-teal-900 px-5 py-2 my-5 mx-5 inline-block font-semibold">
-              {queja.categoria}
-            </div>
-            <button class="bg-teal-300 dark:bg-teal-500 px-5 py-2 my-5 mx-5 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-900 font-semibold">
-              <a href={`/queja/${queja.id}`}>Más información</a>
-            </button>
-          </div>
-        </div>
-      ))
-  }
+<Base title="Búsqueda">
+  <Busqueda />
 </Base>
