@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   }
 
   if (!email || !password) {
-    return new Response("Email and password are required", { status: 400 });
+    return redirect("/failedSignin");
   }
 
   const { data, error } = await supabase.auth.signInWithPassword({
@@ -35,7 +35,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   });
 
   if (error) {
-    return new Response(error.message, { status: 500 });
+    return redirect("/failedSignin");
   }
 
   const { access_token, refresh_token } = data.session;
