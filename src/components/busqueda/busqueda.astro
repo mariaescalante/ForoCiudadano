@@ -25,15 +25,22 @@ const resultadosBusqueda = quejas?.filter((queja) => {
 console.log(resultadosBusqueda?.map((queja) => queja.titulo));
 ---
 
+
+<h2
+  class="text-teal-800 dark:text-teal-300 font-bold text-center lg:text-3xl text-xl"
+>
+  Resultados para "{query}"
+</h2>
 {
     resultadosBusqueda && resultadosBusqueda.length > 0 ? (
         resultadosBusqueda.map((queja) => (
             <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-teal-300 dark:bg-zinc-700 my-5 lg:my-10 lg:mx-56 mx-5 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
-                <div class="flex items-center">
+                <div class="flex items-center justify-center">
                     <a href={`/queja/${queja.id}`} class="block">
                         <img
                             src={queja.imagen}
-                            class="w-auto h-4/5 lg:w-96 m-auto hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl"
+                            class="w-auto h-auto md:h-96 lg:w-96 m-auto hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl"
+                            style={{ maxHeight: "15rem" }}
                         />
                     </a>
                 </div>

@@ -1,19 +1,9 @@
 ---
 import { supabase } from "../../../public/supabase.js";
-import Pagination from "./Pagination.astro";
 
-const { email } = Astro.locals;
+const query: string | null = Astro.url.searchParams.get("distrito");
 
-let { data: usuario, error } = await supabase
-  .from("Usuario")
-  .select("*")
-  .eq("email", email);
-
-let { data: quejas } = await supabase
-  .from("Queja")
-  .select("*")
-  .eq("usuario", usuario && usuario[0]?.id)
-  .order("fecha", { ascending: false });
+let { data: quejas } = await supabase.from("Queja").select("*");
 
 for (let i = 0; i < quejas.length; i++) {
   const { data } = supabase.storage
@@ -22,21 +12,22 @@ for (let i = 0; i < quejas.length; i++) {
   quejas[i].imagen = data.publicUrl;
 }
 
-const quejasPorPagina = 8;
+const resultadosBusqueda = quejas?.filter((queja) => {
+  const distritoMatch: boolean = queja.distrito.includes(query);
 
-const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
-
-const totalPaginas: number = Math.ceil(quejas.length / quejasPorPagina);
-
-const quejasPaginadas = quejas?.slice(
-  (currentPage - 1) * quejasPorPagina,
-  currentPage * quejasPorPagina,
-);
+  return distritoMatch;
+});
 ---
 
+<h2
+  class="text-teal-800 dark:text-teal-300 font-bold text-center lg:text-3xl text-xl"
+>
+  Quejas publicadas en distrito {query}
+</h2>
+
 {
-  quejasPaginadas && quejasPaginadas.length > 0 ? (
-    quejasPaginadas.map((queja) => (
+  resultadosBusqueda && resultadosBusqueda.length > 0 ? (
+    resultadosBusqueda.map((queja) => (
       <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-teal-300 dark:bg-zinc-700 my-5 lg:my-10 lg:mx-56 mx-5 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
         <div class="flex items-center justify-center">
           <a href={`/queja/${queja.id}`} class="block">
@@ -73,17 +64,14 @@ const quejasPaginadas = quejas?.slice(
   ) : (
     <div class="flex justify-center items-center flex-col mt-10">
       <h1 class="text-center font-bold text-2xl text-teal-950 dark:text-teal-300">
-        ¡Aún no has publicado nada!
+        ¡No se ha publicado ninguna queja en el distrito seleccionado!
       </h1>
-      <button class="bg-teal-300 dark:bg-teal-500 px-5 py-2 my-5 mx-5 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-900 font-semibold hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
-        <a href="/crearQueja">Publica tu primera queja</a>
+      <button
+        class="bg-teal-300 dark:bg-teal-500 font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950 mt-5"
+        onclick="window.history.back()"
+      >
+        Volver
       </button>
     </div>
   )
 }
-<Pagination
-  currentPage={currentPage}
-  totalPages={totalPaginas}
-  disablePrevious={currentPage === 1}
-  disableNext={currentPage === totalPaginas || totalPaginas === 0}
-/>

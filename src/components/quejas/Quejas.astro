@@ -30,21 +30,22 @@ const quejasPaginadas = quejas?.slice(
   quejasPaginadas &&
     quejasPaginadas.map((queja) => (
       <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-teal-300 dark:bg-zinc-700 my-5 lg:my-10 lg:mx-56 mx-5 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
-        <div class="flex items-center">
+        <div class="flex items-center justify-center">
           <a href={`/queja/${queja.id}`} class="block">
             <img
               src={queja.imagen}
-              class="w-auto h-4/5 lg:w-96 m-auto hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl"
+              class="w-auto h-auto md:h-96 lg:w-96 m-auto hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl"
+              style={{ maxHeight: "15rem" }}
             />
           </a>
         </div>
         <div class="bg-teal-500 dark:bg-zinc-900 flex-1 pb-10">
           <div class="flex justify-between">
             <a href={`/queja/${queja.id}`} class="block">
-
-            <h2 class="text-teal-950 dark:text-teal-400 font-bold text-lg lg:text-xl my-4 mx-8 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
-              {queja.titulo}
-            </h2></a>
+              <h2 class="text-teal-950 dark:text-teal-400 font-bold text-lg lg:text-xl my-4 mx-8 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
+                {queja.titulo}
+              </h2>
+            </a>
             <h2 class="text-teal-900 dark:text-teal-600  font-bold text-l my-4 mx-8">
               {queja.fecha.substring(0, 10)}
             </h2>
