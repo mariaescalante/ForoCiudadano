@@ -4,18 +4,22 @@ import UsuariosMejorValoradosComponent from "../components/estadisticas/usuarios
 ---
 
 <Base title="Usuarios mejor valorados">
+    <h2
+        class="text-2xl md:text-3xl lg:text-3xl font-bold text-center text-teal-800 dark:text-teal-200"
+    >
+        Usuarios mejor valorados
+    </h2>
     <UsuariosMejorValoradosComponent client:only />
     <div class="flex justify-center">
         <button
-            class="bg-teal-300 dark:bg-teal-500 font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950 mt-5"
+            class="bg-teal-300 dark:bg-teal-500 font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950 mt-10"
             onclick="window.history.back()">Volver</button
         >
     </div>
     <script>
         if (!window.location.hash) {
-            window.location.hash = 'loaded';
+            window.location.hash = "loaded";
             window.location.reload();
         }
     </script>
-
 </Base>

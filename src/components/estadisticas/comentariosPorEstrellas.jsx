@@ -67,13 +67,14 @@ const comentaiosPorEstrellas = () => {
                             data: porcentaje_comentarios,
                             backgroundColor: [
                                 "#14B8A6",
-                                "#0C7065",
-                                "#B0FCD9",
-                                "#033B32",
-                                "#10B879",
+                                "#FFB80F",
+                                "#8824FF",
+                                "#35BCFF",
+                                "#FF8955",
                             ],
                             borderColor: "white",
                             borderWidth: 2,
+
                         },
                     ],
                 }}
@@ -82,7 +83,7 @@ const comentaiosPorEstrellas = () => {
                         legend: {
                             labels: {
                                 color: labelColor,
-                                fontSize: fontSize
+                                fontSize: fontSize,
                             },
                         },
                     },
