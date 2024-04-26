@@ -29,8 +29,8 @@ const quejasPaginadas = quejas?.slice(
 {
   quejasPaginadas &&
     quejasPaginadas.map((queja) => (
-      <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-teal-300 dark:bg-zinc-700 my-5 lg:my-10 lg:mx-56 mx-5 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
-        <div class="flex items-center justify-center">
+      <div class="flex flex-col md:flex-row text-center md:text-left mb-2 bg-zinc-200 dark:bg-zinc-700 my-5 lg:my-10 lg:mx-56 mx-5 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
+        <div class="flex items-center justify-center border-2 border-teal-800">
           <a href={`/queja/${queja.id}`} class="block">
             <img
               src={queja.imagen}
@@ -39,7 +39,7 @@ const quejasPaginadas = quejas?.slice(
             />
           </a>
         </div>
-        <div class="bg-teal-500 dark:bg-zinc-900 flex-1 pb-10">
+        <div class="bg-neutral-50 dark:bg-zinc-800 flex-1 pb-10 border-2 border-teal-900">
           <div class="flex justify-between">
             <a href={`/queja/${queja.id}`} class="block">
               <h2 class="text-teal-950 dark:text-teal-400 font-bold text-lg lg:text-xl my-4 mx-8 hover:scale-105 transition-all hover:contrast-125 hover:shadow-2xl">
@@ -50,7 +50,7 @@ const quejasPaginadas = quejas?.slice(
               {queja.fecha.substring(0, 10)}
             </h2>
           </div>
-          <p class="text-am lg:text-l mx-10 text-neutral-100 dark:text-neutral-100">
+          <p class="text-am lg:text-l mx-10 text-neutral-950 dark:text-neutral-100">
             {queja.descripcion}
           </p>
           <div class="bg-teal-300 dark:bg-teal-500 text-teal-900 px-5 py-2 my-5 mx-5 inline-block font-semibold">
