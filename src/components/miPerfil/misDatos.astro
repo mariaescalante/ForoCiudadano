@@ -14,36 +14,43 @@ let { data: usuario, error } = await supabase
     usuario.map((usuario) => (
       <div class="my-5 lg:my-6 lg:mx-56 mx-5 text-center pb-10">
         <div class="inline-block">
-          <h2 class="text-teal-900 dark:text-teal-400 font-bold mt-5 text-center lg:text-xl text-l">
-            Nombre
-          </h2>
-          <div class="text-center bg-teal-300 dark:bg-teal-200 border-teal-600 py-2 px-10 my-2">
-            {usuario.nombre}
+          <div class="flex flex-col sm:flex-row items-center mb-4">
+            <div class="text-center text-xl font-bold text-teal-900 dark:text-teal-300 py-2 px-10 mr-9 lg:mr-3">
+              Nombre
+            </div>
+            <div class="text-center bg-teal-300 dark:bg-teal-200 border-teal-600 py-2 px-10">
+              {usuario.nombre}
+            </div>
           </div>
-
-          <h2 class="text-teal-900 dark:text-teal-400 font-bold mt-6 text-center lg:text-xl text-l">
-            Apellidos
-          </h2>
-          <div class="text-center bg-teal-300 dark:bg-teal-200 border-teal-600 py-2 px-10 my-2">
-            {usuario.apellidos}
+          <div class="flex flex-col sm:flex-row items-center mb-4">
+            <div class="text-center text-xl font-bold text-teal-900 dark:text-teal-300 py-2 px-10 lg:mr-0 mr-9">
+              Apellidos
+            </div>
+            <div class="text-center bg-teal-300 dark:bg-teal-200 border-teal-600 py-2 px-10">
+              {usuario.apellidos}
+            </div>
           </div>
-
-          <h2 class="text-teal-900 dark:text-teal-400 font-bold mt-6 text-center lg:text-xl text-l">
-            Email
-          </h2>
-          <div class="text-center bg-teal-300 dark:bg-teal-200 border-teal-600 py-2 px-10 my-2">
-            {usuario.email}
+          <div class="flex flex-col sm:flex-row items-center mb-4">
+            <div class="text-center text-xl font-bold text-teal-900 dark:text-teal-300 py-2 px-10 mr-9">
+              Email
+            </div>
+            <div class="text-center bg-teal-300 dark:bg-teal-200 border-teal-600 py-2 px-10">
+              {usuario.email}
+            </div>
           </div>
-
-          <h2 class="text-teal-900 dark:text-teal-400 font-bold mt-6  text-center lg:text-xl text-l">
-            Teléfono
-          </h2>
-          <div class="text-center bg-teal-300 dark:bg-teal-200 border-teal-600 py-2 px-10 my-2 mb-12">
-            {usuario.telefono}
+          <div class="flex flex-col sm:flex-row items-center mb-4">
+            <div class="text-center text-xl font-bold text-teal-900 dark:text-teal-300 py-2 px-10 mr-9 lg:mr-1">
+              Teléfono
+            </div>
+            <div class="text-center bg-teal-300 dark:bg-teal-200 border-teal-600 py-2 px-10">
+              {usuario.telefono}
+            </div>
           </div>
+        </div>
+        <div class="flex justify-center mt-6">
           <a
             href="/api/auth/signout"
-            class="bg-teal-400 dark:bg-teal-500 font-semibold hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950 px-4 py-2  "
+            class="bg-teal-400 dark:bg-teal-500 font-semibold hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950 px-4 py-2"
           >
             Cerrar sesión
           </a>
