@@ -3,20 +3,19 @@ const { email } = Astro.locals;
 ---
 
 <form id="quejaForm" enctype="multipart/form-data">
-  <div
-    class="my-5 lg:my-10 text-center pb-10 lg:mx-56 mx-5"
-  >
+  <div class="my-5 lg:my-10 text-center pb-10 lg:mx-56 mx-5">
     <h2
       class="font-bold mt-10 text-center lg:text-2xl text-l text-teal-950 dark:text-teal-500 my-10 pt-10"
     >
       Introduzca los datos de su queja
     </h2>
     <div class="inline-block">
-
-      <input type="hidden" id="email" value={email}>  
+      <input type="hidden" id="email" value={email} />
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="imagen" class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
+        <label
+          for="imagen"
+          class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
           >Imagen</label
         >
         <input
@@ -29,7 +28,9 @@ const { email } = Astro.locals;
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="titulo" class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
+        <label
+          for="titulo"
+          class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
           >Título</label
         >
         <input
@@ -43,7 +44,8 @@ const { email } = Astro.locals;
       <div class="grid grid-cols-1 gap-2">
         <label
           for="descripcion"
-          class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3">Descripción</label
+          class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
+          >Descripción</label
         >
         <textarea
           id="descripcion"
@@ -54,7 +56,9 @@ const { email } = Astro.locals;
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="categoria" class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
+        <label
+          for="categoria"
+          class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
           >Categoría</label
         >
         <select
@@ -75,7 +79,9 @@ const { email } = Astro.locals;
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="distrito" class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
+        <label
+          for="distrito"
+          class="font-semibold text-teal-900 dark:text-neutral-100 text-xl mb-3"
           >Distrito</label
         >
         <select
@@ -103,6 +109,13 @@ const { email } = Astro.locals;
         </select>
       </div>
 
+      <button
+        class="bg-teal-300 dark:bg-teal-500 font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950 mt-5"
+        onclick="window.history.back()"
+      >
+        Volver
+      </button>
+      
       <button
         id="publicarQueja"
         class="bg-teal-300 dark:bg-teal-500 font-semibold px-4 py-2 hover:bg-teal-200 dark:hover:bg-teal-600 text-teal-950"

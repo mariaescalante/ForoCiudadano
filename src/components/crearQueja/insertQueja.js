@@ -36,6 +36,6 @@ async function insertarQueja() {
         .select()
 
 
-    window.location.href = "/misQuejas"
+    window.location.href = `/queja/${data[0].id}`
 
 }
