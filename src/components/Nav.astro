@@ -22,32 +22,36 @@ const currentPath = currentUrl.pathname;
           </a>
         </li>
 
-        <li>
+        <li class="lg:hidden">
+          <button
+            onclick="document.getElementById('nav').classList.toggle('hidden')"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </li>
+
+        <li id="nav" class="hidden lg:flex">
           <a
             href="/quejas"
-            class={`block text-teal-950 ${currentPath === "/quejas" ? "font-bold border-b-2 border-teal-950" : ""}`}
-            >Consultar quejas</a
+            class={` p-5 block ${currentPath === "/quejas" ? "font-bold border-b-2 border-teal-950" : ""}`}
           >
-        </li>
-
-        <li>
+            Consultar quejas
+          </a>
           <a
             href="/misQuejas"
-            class={`block text-teal-950 ${currentPath === "/misQuejas" ? "font-bold border-b-2 border-teal-950" : ""}`}
-            >Mis quejas</a
+            class={`p-5 block ${currentPath === "/misQuejas" ? "font-bold border-b-2 border-teal-950" : ""}`}
           >
-        </li>
-
-        <li>
+            Mis quejas
+          </a>
           <a
-            href="/crearQueja"
-            class={`block text-teal-950 ${currentPath === "/crearQueja" ? "font-bold border-b-2 border-teal-950" : ""}`}
-            >Publicar queja</a
+            href="/publicarQueja"
+            class={`p-5 block ${currentPath === "/crearQueja" ? "font-bold border-b-2 border-teal-950" : ""}`}
           >
+            Publicar queja
+          </a>
         </li>
       </ul>
     </div>
-
     <div>
       <ul class="font-medium flex items-center gap-4">
         <li>
