@@ -10,6 +10,4 @@ export default defineConfig({
   output: "server",
   adapter: vercel(),
   integrations: [tailwind(), react()],
-  output: "server",
-  adapter: vercel(),
 });
